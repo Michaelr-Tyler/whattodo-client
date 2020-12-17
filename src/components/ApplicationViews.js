@@ -1,5 +1,8 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import { CategorieProvider } from "./category/CategoryDataProvider";
+import TodoAccordian from "./todos/TodoAccordian";
+import { TodoProvider } from "./todos/TodoDataProvider";
 
 
 export const ApplicationViews = () => {
@@ -14,6 +17,13 @@ export const ApplicationViews = () => {
                   return <Redirect to="/login" />;
                 }}
               />
+              <main className="container p-5">
+                  <TodoProvider>
+                    <CategorieProvider>
+                      <Route exact path="/" component={TodoAccordian} />
+                    </CategorieProvider>
+                  </TodoProvider>
+              </main>
             </>
     )
 }
