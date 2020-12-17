@@ -16,7 +16,7 @@ export const request = async (location, method = 'GET', body) => {
     // and set its value to applicatio/json
     if(method === 'POST' || method === 'PUT') {
       headers['Content-Type'] = 'application/json';
-    }
+    };
     //create an options object to be passed along with the reques
     const options = {
       method,
@@ -25,7 +25,7 @@ export const request = async (location, method = 'GET', body) => {
     //If a payload needs to be passed add that to the options object
     if(body) {
       options.body = JSON.stringify(body);
-    }
+    };
   
     return await fetch(location, options);
   };

@@ -3,6 +3,9 @@ import { Route, Redirect } from "react-router-dom";
 import { CategorieProvider } from "./category/CategoryDataProvider";
 import TodoAccordian from "./todos/TodoAccordian";
 import { TodoProvider } from "./todos/TodoDataProvider";
+import { TagsProvider } from "./tags/TagsDataProvider";
+import { TagManager } from "./tags/TagManager";
+
 
 
 export const ApplicationViews = () => {
@@ -23,6 +26,9 @@ export const ApplicationViews = () => {
                       <Route exact path="/" component={TodoAccordian} />
                     </CategorieProvider>
                   </TodoProvider>
+                  <TagsProvider>
+                    <Route exact path="/tags" component={TagManager} />
+                  </TagsProvider>
               </main>
             </>
     )
