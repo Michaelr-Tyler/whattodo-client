@@ -1,8 +1,9 @@
 import React  from "react";
 import { Col, ListGroup, Row } from "react-bootstrap";
+import { TodoTagList } from "../todotags/TodoTagsList";
+
 
 export const Todo = (props) => {
-    const tags = props.tags
     return (
         <ListGroup.Item>
             <Row className="align-items-center justify-content-end my-1">
@@ -10,7 +11,7 @@ export const Todo = (props) => {
                     <h5>{props.task}</h5>
                 </Col>
                 <Col>
-                <div>todotags list will eventually go here</div>
+                <TodoTagList todoTags={props.tags}/>
                 </Col>
             </Row>
         </ListGroup.Item>

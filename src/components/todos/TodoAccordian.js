@@ -30,7 +30,7 @@ const TodoAccordian = (props) => {
                         <Accordion.Collapse eventKey={c.id}>
                             <ListGroup variant="flush">{todos.map((td)=>{
                                 if (td.category.id === c.id) {
-                                    return <Todo key={td.id} task={td.task} />
+                                    return <Todo key={td.id} task={td.task} tags={td.tags}/>
                                 }
                             })}</ListGroup>
                             </Accordion.Collapse>
