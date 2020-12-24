@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Fragment } from "react";
-import { Accordion, Card, Button, ListGroup } from "react-bootstrap";
+import { Accordion, Card, Button, ListGroup, Row } from "react-bootstrap";
 import { CategoryContext } from "../category/CategoryDataProvider";
 import { Todo } from "./Todo";
 import { TodoContext } from "./TodoDataProvider";
@@ -32,7 +32,9 @@ const TodoAccordian = (props) => {
                                 if (td.category.id === c.id) {
                                     return (
                                         <ListGroup.Item>
-                                            <Todo key={td.id} task={td.task} tags={td.tags}/>
+                                            <Row>
+                                                <Todo key={td.id} task={td.task} tags={td.tags}/>
+                                            </Row>
                                         </ListGroup.Item>
                                     )
                                 }

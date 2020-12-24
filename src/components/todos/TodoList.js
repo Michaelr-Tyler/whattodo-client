@@ -28,11 +28,8 @@ export const TodoList = (props) => {
         <ListGroup variant="flush">{todos.map((td)=>{
                 return (
                 <ListGroup.Item>
-                    <Row>
-
-                     <Col>
+                    <Row xs={2} md ={4} lg={4}>
                      <Todo key={td.id} task={td.task} tags={td.tags} category={td.category.label} />
-                     </Col>
                      <Col>
                      <SubmitButton label={"Edit"} onClick={(e)=> {
                          e.preventDefault()

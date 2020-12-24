@@ -106,7 +106,7 @@ export const TodoForm = (props) => {
                                 onChange={e => setImportantRating(e.target.value)}
                                 min = {1}
                                 max = {10}
-                                tooltip={'auto'}
+                                tooltip={'off'}
                             />
                         </Col>
                         <Col lg="6">
@@ -122,7 +122,7 @@ export const TodoForm = (props) => {
                                     setUrgentRating(e.target.value)}}
                                 min = {1}
                                 max = {10}
-                                tooltip={'auto'}
+                                tooltip={'off'}
                             />
                         </Col>
                         </Row>

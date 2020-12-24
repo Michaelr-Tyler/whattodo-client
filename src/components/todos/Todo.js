@@ -11,16 +11,18 @@ export const Todo = (props) => {
     const {deleteTodo, getTodos} = useContext(TodoContext)
     return (
         
-            <Row lg={6} xs={1}>
-                
+            <>
+                <Col>
                     <h5>{props.task}</h5>
-                
-                <TodoTagList todoTags={props.tags}/>
+                </Col>
+                <Col>
+                    <TodoTagList todoTags={props.tags}/>
+                </Col>
                 
                 {props.category ? <Col className="text-muted">
                 <p>{props.category}</p>
                 </Col> : ""}                
-            </Row>
+            </>
          
         )
     
