@@ -1,7 +1,7 @@
 import React  from "react";
 import { Col, ListGroup, Row } from "react-bootstrap";
 import { TodoTagList } from "../todotags/TodoTagsList";
-import SubmitButton from "../utils/SubmitButton";
+
 
 
 export const Todo = (props) => {
@@ -17,6 +17,7 @@ export const Todo = (props) => {
                 {props.category ? <Col className="text-muted">
                 <p>{props.category}</p>
                 </Col> : ""}
+
             </Row>
         </ListGroup.Item>
             
