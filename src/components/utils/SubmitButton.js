@@ -6,7 +6,6 @@ export default (props) => {
         <Button 
             onClick={props.onClick} 
             type={props.type || "submit"} 
-            className="w-50 mx-auto"
         >
             {props.label}
         </Button>

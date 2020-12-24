@@ -1,5 +1,5 @@
 //component to handle todo's added and edited
-import React,{useRef, useState, useContext} from "react";
+import React,{useRef, useState, useContext, useEffect} from "react";
 import { Form, FormGroup, Row, Col } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import { TodoTagForm } from "../todotags/TodoTagForm";
@@ -8,20 +8,35 @@ import { TodoContext } from "./TodoDataProvider";
 
 
 export const TodoForm = (props) => {
-    const {createTodo, updateTodo} = useContext(TodoContext)
-
-    const [importanceValue, setImportanceValue] = useState("5")
-    const [urgenceValue, setUrgenceValue] = useState("5")
+    const {createTodo, updateTodo, getSingleTodo} = useContext(TodoContext)
+    const [importantRating, setImportantRating] = useState(5)
+    const [urgentRating, setUrgentRating] = useState(5)
 
     //set the initial todo tag id array to an empty one, 
     //when sending a Todo object to the server it will be expecting an array of either tag Ids or just an empty array.
-    //Instead of trying to set up post tags on the front end,
+    //Instead of trying to set up todo tags on the front end,
     //we can use the back end and some loggic to create the many to many relationships on the back side
     const [selectedTodoTagIds, setSelectedTodoTagIds] = useState([])
 
+    const isEditMode = props.match.params.hasOwnProperty("todoId")
+
+    useEffect(()=>{
+        if(isEditMode){
+            getSingleTodo(props.match.params.todoId)
+            .then(populateFormValues)
+        }
+    },[])
     const taskRef = useRef("")
 
-    const isEditMode = props.match.params.hasOwnProperty("todoId")
+
+    const populateFormValues = (todo) => {
+        taskRef.current.value = todo.task
+        setImportantRating(todo.important)
+        setUrgentRating(todo.urgent)
+
+        const initiallySelectedtodoTagIds = todo.tags.map(tag => tag.id)
+        setSelectedTodoTagIds(initiallySelectedtodoTagIds)
+      }
 
     const onToggleTodoTag = (changeTodoId) => {
         let selectedTodoTagIdsList=[]
@@ -40,6 +55,8 @@ export const TodoForm = (props) => {
         setSelectedTodoTagIds(selectedTodoTagIdsList)
     }
 
+
+
     const constructNewTodo = () => {
         if (taskRef.current.value === "") {
             window.alert("Please fill in a task")
@@ -47,16 +64,16 @@ export const TodoForm = (props) => {
             // if validation success - create a new object from the form inputs and then either save or update it
             const newTodo = {
                 task: taskRef.current.value,
-                urgent: parseInt(urgenceValue),
-                important: parseInt(importanceValue),
+                urgent: parseInt(urgentRating),
+                important: parseInt(importantRating),
                 tagIds: selectedTodoTagIds
             }
             if(isEditMode) {
                 updateTodo(props.match.params.todoId, newTodo)
-                .then(props.history.push(`/`))
+                .then(props.history.push(`/todo`))
             } else {
                 createTodo(newTodo)
-                .then(props.history.push(`/`))
+                .then(props.history.push(`/todo`))
             }
         }
     }
@@ -85,11 +102,11 @@ export const TodoForm = (props) => {
 
                             </div>
                             <RangeSlider
-                                defaultValue={importanceValue}
-                                onChange={e => setImportanceValue(e.target.value)}
+                                value={importantRating}
+                                onChange={e => setImportantRating(e.target.value)}
                                 min = {1}
                                 max = {10}
-                                tooltip={'auto'}
+                                tooltip={'off'}
                             />
                         </Col>
                         <Col lg="6">
@@ -100,8 +117,9 @@ export const TodoForm = (props) => {
                             Think about scoring this higher if you need to complete this by today or tomorrow. 
                             </div>
                             <RangeSlider
-                                defaultValue={urgenceValue}
-                                onChange={e => setUrgenceValue(e.target.value)}
+                                value={urgentRating}
+                                onChange={e => {
+                                    setUrgentRating(e.target.value)}}
                                 min = {1}
                                 max = {10}
                                 tooltip={'off'}
