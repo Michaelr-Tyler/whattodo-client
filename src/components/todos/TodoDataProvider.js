@@ -7,11 +7,18 @@ export const TodoContext = createContext();
 
 export const TodoProvider = props =>{
     const[todos, setTodos] = useState([]);
+    const[searchTerms, setTerms] = useState({})
 
     
 
     const getTodos = async ()=>{
         const response = await request(`http://localhost:8000/todos`)
+        const todos = await response.json()
+        setTodos(todos)
+    }
+
+    const getTodosByCategory = async (categoryId)=>{
+        const response = await request(`http://localhost:8000/todos?categories=${categoryId}`)
         const todos = await response.json()
         setTodos(todos)
     }
@@ -30,7 +37,7 @@ export const TodoProvider = props =>{
 
     return (
         <TodoContext.Provider value={{
-            todos, getTodos, createTodo, updateTodo, deleteTodo
+            todos, getTodos, createTodo, updateTodo, deleteTodo, getTodosByCategory
         }}>
             {props.children}
         </TodoContext.Provider>
