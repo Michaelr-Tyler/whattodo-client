@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
+import { ListGroup, Row, Col, Container } from "react-bootstrap";
 import SubmitButton from "../utils/SubmitButton";
 import Tag from "./Tag";
 import { TagContext } from "./TagsDataProvider";
 
 
-export default (props) => {
+export const TagList = (props) => {
     const { tags, getTags, deleteTag} = useContext(TagContext);
 
     tags.sort((a, b) => {

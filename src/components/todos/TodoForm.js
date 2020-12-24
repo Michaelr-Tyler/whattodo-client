@@ -1,6 +1,6 @@
 //component to handle todo's added and edited
 import React,{useRef, useState, useContext} from "react";
-import { Form, FormGroup, Row, Col, Card, Container } from "react-bootstrap";
+import { Form, FormGroup, Row, Col } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import { TodoTagForm } from "../todotags/TodoTagForm";
 import SubmitButton from "../utils/SubmitButton";
@@ -62,8 +62,7 @@ export const TodoForm = (props) => {
     }
 
     return (
-        // <Card>
-        //     <Card.Body>
+
                 <Form  style={{ width: '40rem' }}>
                     <h1 className="text-center my-4">
                         {isEditMode ? "Edit Todo" : "Create Todo"}
@@ -124,7 +123,5 @@ export const TodoForm = (props) => {
                         />
                     </Row>
                 </Form>
-        //     </Card.Body>
-        // </Card>
     )
 }

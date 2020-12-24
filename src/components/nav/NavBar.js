@@ -10,7 +10,7 @@ export const NavBar = (props) => {
     return (
       <Navbar expand="md">
         <Navbar.Brand as={Link} to="/">
-            <img className="navbar__logo" src={Logo} />
+            <img className="navbar__logo" src={Logo} alt={"A red triangel, yellow square, blue circle, and black back slash with What to do? below it as a home button"} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav container ">
