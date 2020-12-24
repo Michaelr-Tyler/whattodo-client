@@ -16,9 +16,21 @@ export const TodoProvider = props =>{
         setTodos(todos)
     }
 
+    const createTodo = async (todo) => {
+        return await request(`http://localhost:8000/todos`,'POST', todo)
+    }
+
+    const updateTodo = async (todoId, todo) => {
+        return await request(`http://localhost:8000/todos/${todoId}`,'PUT', todo)
+    }
+
+    const deleteTodo = async (todoId) => {
+        return await request(`http://localhost:8000/todos/${todoId}`, 'DELETE')
+    }
+
     return (
         <TodoContext.Provider value={{
-            todos, getTodos
+            todos, getTodos, createTodo, updateTodo, deleteTodo
         }}>
             {props.children}
         </TodoContext.Provider>

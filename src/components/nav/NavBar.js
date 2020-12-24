@@ -16,9 +16,9 @@ export const NavBar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav container ">
           <Nav className="mr-auto container-fluid"> 
             {/* <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/my-posts")}>My Posts</Button> */}
-            <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/task/create")}>Add Task</Button>
+            <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/todo")}>Todo List</Button>
+            <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/todo/create")}>Add Task</Button>
             <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/tags")}>Tag Manager</Button>
-            {/*<Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/profiles")}>Profiles</Button> */}
             <Button variant="outline-primary" className="mx-2 my-1 ml-md-auto" onClick={() => props.history.push("/logout")}>Logout</Button>
           </Nav>
         </Navbar.Collapse>
