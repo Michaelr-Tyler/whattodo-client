@@ -5,6 +5,8 @@ import TodoAccordian from "./todos/TodoAccordian";
 import { TodoProvider } from "./todos/TodoDataProvider";
 import { TagsProvider } from "./tags/TagsDataProvider";
 import { TagManager } from "./tags/TagManager";
+import { TodoForm } from "./todos/TodoForm";
+import { TodoList } from "./todos/TodoList";
 
 
 
@@ -22,13 +24,22 @@ export const ApplicationViews = () => {
               />
               <main className="container p-5">
                   <TodoProvider>
-                    <CategorieProvider>
+                  <CategorieProvider>
                       <Route exact path="/" component={TodoAccordian} />
-                    </CategorieProvider>
+                  </CategorieProvider>
                   </TodoProvider>
                   <TagsProvider>
-                    <Route exact path="/tags" component={TagManager} />
+                      <Route exact path="/tags" component={TagManager} />
                   </TagsProvider>
+                  <TodoProvider>
+                  <TagsProvider>
+                  <CategorieProvider>
+                      <Route exact path="/todo" component={TodoList} />
+                      <Route exact path="/todo/create" component={TodoForm} />
+                  </CategorieProvider>
+                  </TagsProvider>
+                  </TodoProvider>
+
               </main>
             </>
     )
