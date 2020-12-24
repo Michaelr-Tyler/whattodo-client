@@ -36,6 +36,7 @@ export const ApplicationViews = () => {
                   <CategorieProvider>
                       <Route exact path="/todo" component={TodoList} />
                       <Route exact path="/todo/create" component={TodoForm} />
+                      <Route path="/todo/create/:todoId" component={TodoForm} />
                   </CategorieProvider>
                   </TagsProvider>
                   </TodoProvider>
