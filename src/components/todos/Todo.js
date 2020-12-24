@@ -13,6 +13,9 @@ export const Todo = (props) => {
                 <Col>
                 <TodoTagList todoTags={props.tags}/>
                 </Col>
+                {props.category ? <Col className="text-muted">
+                <p>{props.category}</p>
+                </Col> : ""}
             </Row>
         </ListGroup.Item>
             
