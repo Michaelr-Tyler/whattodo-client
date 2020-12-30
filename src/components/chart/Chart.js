@@ -99,8 +99,8 @@ class Chart {
 	
 	update() {
 		let vis = this
-		vis.x.domain([10 , 0])
-		vis.y.domain([0 , 10])
+		vis.x.domain([10 , 1])
+		vis.y.domain([1 , 10])
 
 		const xAxisCall = d3.axisBottom(vis.x).tickValues("")
 		const yAxisCall = d3.axisLeft(vis.y).tickValues("")

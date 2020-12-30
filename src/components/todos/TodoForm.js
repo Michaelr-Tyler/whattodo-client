@@ -104,7 +104,7 @@ export const TodoForm = (props) => {
                             <RangeSlider
                                 value={importantRating}
                                 onChange={e => setImportantRating(e.target.value)}
-                                min = {0}
+                                min = {1}
                                 max = {10}
                                 tooltip={'off'}
                             />
@@ -120,7 +120,7 @@ export const TodoForm = (props) => {
                                 value={urgentRating}
                                 onChange={e => {
                                     setUrgentRating(e.target.value)}}
-                                min = {0}
+                                min = {1}
                                 max = {10}
                                 tooltip={'off'}
                             />
