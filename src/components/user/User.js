@@ -3,7 +3,6 @@ import { Alert, Row, Col } from "react-bootstrap";
 import { UserContext } from "../user/UserDataProvider";
 import { Clock } from "../utils/Clock";
 
-//this is coupled lets fix it
 export const User = () => {
   const {user, getCurrentUser} = useContext(UserContext)
 

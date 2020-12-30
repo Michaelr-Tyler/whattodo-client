@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { CategorieProvider } from "./category/CategoryDataProvider";
 import { TodoProvider } from "./todos/TodoDataProvider";
@@ -47,4 +47,4 @@ export const ApplicationViews = () => {
               </Container>
             </>
     )
-}
+};

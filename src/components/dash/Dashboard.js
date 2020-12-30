@@ -25,7 +25,7 @@ export const Dashboard = (props) => {
     }
     return <ChartWrapper todos={todos} />
   }
-  
+
   return (
     <>
     <Row>
