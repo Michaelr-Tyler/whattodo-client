@@ -8,6 +8,7 @@ import { TodoForm } from "./todos/TodoForm";
 import { TodoList } from "./todos/TodoList";
 import { Dashboard } from "./dash/Dashboard";
 import { Container } from "react-bootstrap";
+import { UserDataProvider } from "./user/UserDataProvider";
 
 
 
@@ -26,7 +27,9 @@ export const ApplicationViews = () => {
               <Container fluid="xs" className="p-3">
                   <TodoProvider>
                   <CategorieProvider>
+                  <UserDataProvider>
                       <Route exact path="/" component={Dashboard} />
+                  </UserDataProvider>
                   </CategorieProvider>
                   </TodoProvider>
                   <TagsProvider>
@@ -41,7 +44,6 @@ export const ApplicationViews = () => {
                   </CategorieProvider>
                   </TagsProvider>
                   </TodoProvider>
-
               </Container>
             </>
     )

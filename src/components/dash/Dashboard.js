@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Row, Col, Spinner, Card } from "react-bootstrap";
+import { Row, Col, Spinner, Card, Alert } from "react-bootstrap";
 import ChartWrapper from "../chart/ChartWrapper";
 import TodoAccordian from "../todos/TodoAccordian";
 import { TodoContext } from "../todos/TodoDataProvider"
 import MatrixImage from "../../images/EisenhowerMatrix.png"
+import { User } from "../user/User";
+
 
 
 export const Dashboard = (props) => {
@@ -28,7 +30,7 @@ export const Dashboard = (props) => {
     <>
     <Row>
       <Col>
-        <div>user card</div>
+        <User />
       </Col>
     </Row>
       <Row>
@@ -39,9 +41,8 @@ export const Dashboard = (props) => {
             <Card.Body>
               <Card.Title>Eisenhower Matrix:</Card.Title>
               <Card.Text>
-                 A scatterplot, developed by Dwight D, Eisenhower, that can help you decide and prioritize tasks by urgency and importance, 
+                 A method, developed by Dwight D, Eisenhower, that can help you decide and prioritize tasks by urgency and importance, 
                  sifting out less urgent and important tasks which you should either delegate or not do at all. 
-                
               </Card.Text>
             </Card.Body>
           </Card>
