@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { CategorieProvider } from "./category/CategoryDataProvider";
-import TodoAccordian from "./todos/TodoAccordian";
 import { TodoProvider } from "./todos/TodoDataProvider";
 import { TagsProvider } from "./tags/TagsDataProvider";
 import { TagManager } from "./tags/TagManager";
 import { TodoForm } from "./todos/TodoForm";
 import { TodoList } from "./todos/TodoList";
+import { Dashboard } from "./dash/Dashboard";
+import { Container } from "react-bootstrap";
 
 
 
@@ -22,10 +23,10 @@ export const ApplicationViews = () => {
                   return <Redirect to="/login" />;
                 }}
               />
-              <main className="container p-5">
+              <Container fluid="xs" className="p-3">
                   <TodoProvider>
                   <CategorieProvider>
-                      <Route exact path="/" component={TodoAccordian} />
+                      <Route exact path="/" component={Dashboard} />
                   </CategorieProvider>
                   </TodoProvider>
                   <TagsProvider>
@@ -41,7 +42,7 @@ export const ApplicationViews = () => {
                   </TagsProvider>
                   </TodoProvider>
 
-              </main>
+              </Container>
             </>
     )
 }

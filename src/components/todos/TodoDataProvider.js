@@ -7,9 +7,7 @@ export const TodoContext = createContext();
 
 export const TodoProvider = props =>{
     const[todos, setTodos] = useState([]);
-    const[searchTerms, setTerms] = useState({})
 
-    
 
     const getTodos = async ()=>{
         const response = await request(`http://localhost:8000/todos`)

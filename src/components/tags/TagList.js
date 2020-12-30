@@ -26,7 +26,7 @@ export const TagList = (props) => {
 
 
       return (
-        <Container>
+        <Container fluid>
             {tags.map((t) => {
                 return (
                     <ListGroup key={t.id}>
