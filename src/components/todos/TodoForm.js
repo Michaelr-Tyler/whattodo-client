@@ -70,10 +70,10 @@ export const TodoForm = (props) => {
             }
             if(isEditMode) {
                 updateTodo(props.match.params.todoId, newTodo)
-                .then(props.history.push(`/todo`))
+                .then(props.history.push(`/`))
             } else {
                 createTodo(newTodo)
-                .then(props.history.push(`/todo`))
+                .then(props.history.push(`/`))
             }
         }
     }
@@ -104,7 +104,7 @@ export const TodoForm = (props) => {
                             <RangeSlider
                                 value={importantRating}
                                 onChange={e => setImportantRating(e.target.value)}
-                                min = {1}
+                                min = {0}
                                 max = {10}
                                 tooltip={'off'}
                             />
@@ -120,7 +120,7 @@ export const TodoForm = (props) => {
                                 value={urgentRating}
                                 onChange={e => {
                                     setUrgentRating(e.target.value)}}
-                                min = {1}
+                                min = {0}
                                 max = {10}
                                 tooltip={'off'}
                             />

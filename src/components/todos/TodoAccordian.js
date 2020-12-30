@@ -18,7 +18,7 @@ const TodoAccordian = (props) => {
     
 
     return (
-        <Accordion>
+        <Accordion defaultActiveKey={1}>
             <Card>
                 {categories.map((c)=>{
                     return(<Fragment key={c.id}>
