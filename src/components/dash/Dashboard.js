@@ -14,18 +14,17 @@ export const Dashboard = (props) => {
   useEffect(()=>{
     getTodos()
   },[])
-
+  console.log("dashboard",todos)
   const renderChart = () => {
     if(todos.length === 0) {
       return (
-      <Spinner animation="border" role="status">
-        <span className="sr-only">Loading...</span>
-      </Spinner>
-    )
+        <h1>Your Todo Chart will render here.</h1>
+        )
+      }
+      
+      return <ChartWrapper todos={todos} />
     }
-    return <ChartWrapper todos={todos} />
-  }
-
+    
   return (
     <>
     <Row>
@@ -35,7 +34,17 @@ export const Dashboard = (props) => {
     </Row>
       <Row>
         <Col>
-          <Card className="mb-4">
+          <TodoAccordian />
+        </Col>
+        <Col>
+        <Card>
+          {renderChart()}
+        </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Card className="mt-4">
             <Card.Img variant="top" src={MatrixImage} />
             <Card.Header as="h5">What is the Eisenhower matrix?</Card.Header>
             <Card.Body>
@@ -46,16 +55,6 @@ export const Dashboard = (props) => {
               </Card.Text>
             </Card.Body>
           </Card>
-        </Col>
-        <Col>
-        <Card>
-          {renderChart()}
-        </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <TodoAccordian />
         </Col>
       </Row>
     </>

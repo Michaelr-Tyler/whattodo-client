@@ -31,6 +31,19 @@ export const TodoProvider = props =>{
         return await request(`http://localhost:8000/todos`,'POST', todo)
     }
 
+    // const createTodo = (todo) => {
+    //     return fetch("http://localhost:8000/todos", {
+    //         method:'POST',
+    //         headers: {
+    //             "Content-type": "application/Json",
+    //             "Authorization" : `Token ${localStorage.getItem('user_token')}`
+    //         },
+    //         body: JSON.stringify(todo)
+    //      })
+    //      .then(res => res.json())
+    //      .then(getTodos)
+    // }
+
     const updateTodo = async (todoId, todo) => {
         return await request(`http://localhost:8000/todos/${todoId}`,'PUT', todo)
     }
