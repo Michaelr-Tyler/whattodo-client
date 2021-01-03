@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap"
 export default (props) => {
     return (
         <Button 
+            className="ml-1 mr-1"
             onClick={props.onClick} 
             type={props.type || "submit"} 
         >
