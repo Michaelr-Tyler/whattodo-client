@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Row, Col, Spinner, Card, Alert } from "react-bootstrap";
+import React, { useContext, useEffect } from "react";
+import { Row, Col, Card } from "react-bootstrap";
 import ChartWrapper from "../chart/ChartWrapper";
 import TodoAccordian from "../todos/TodoAccordian";
 import { TodoContext } from "../todos/TodoDataProvider"
@@ -8,7 +8,7 @@ import { User } from "../user/User";
 
 
 
-export const Dashboard = (props) => {
+export const Dashboard = () => {
   const {todos, getTodos} = useContext(TodoContext)
   
   useEffect(()=>{
@@ -18,8 +18,11 @@ export const Dashboard = (props) => {
   const renderChart = () => {
     if(todos.length === 0) {
       return (
-        <h1>Your Todo Chart will render here.</h1>
-        )
+        <>
+          <h5 style={{"textAlign":"center"}} class="text-muted">Log some todos to see where they chart</h5> 
+          <ChartWrapper todos={todos} />
+        </>
+      )
       }
       
       return <ChartWrapper todos={todos} />
