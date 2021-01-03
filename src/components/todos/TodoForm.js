@@ -8,7 +8,7 @@ import { TodoContext } from "./TodoDataProvider";
 
 
 export const TodoForm = (props) => {
-    const {createTodo, updateTodo, getSingleTodo} = useContext(TodoContext)
+    const {createTodo, updateTodo, getSingleTodo, getTodos} = useContext(TodoContext)
     const [importantRating, setImportantRating] = useState(5)
     const [urgentRating, setUrgentRating] = useState(5)
 
@@ -24,7 +24,7 @@ export const TodoForm = (props) => {
         if(isEditMode){
             getSingleTodo(props.match.params.todoId)
             .then(populateFormValues)
-        }
+        } 
     },[])
     const taskRef = useRef("")
 
@@ -73,7 +73,8 @@ export const TodoForm = (props) => {
                 .then(props.history.push(`/`))
             } else {
                 createTodo(newTodo)
-                .then(props.history.push(`/`))
+                .then(getTodos)
+                .then(() => props.history.push(`/`))
             }
         }
     }

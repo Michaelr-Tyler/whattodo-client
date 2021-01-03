@@ -9,8 +9,6 @@ class Chart {
 	constructor(element, todos) {
 		let vis = this
     vis.data = todos
-    
-		console.log(vis.data)
 
 		vis.g = d3.select(element)
 			.append("svg")
@@ -94,13 +92,14 @@ class Chart {
 		.text("Less important")
 
 
-		vis.update()		
+		vis.update(todos)		
 	}
 	
-	update() {
+	update(todos) {
 		let vis = this
-		vis.x.domain([10 , 1])
-		vis.y.domain([1 , 10])
+		vis.data = todos
+		vis.x.domain([10 , 0])
+		vis.y.domain([0 , 10])
 
 		const xAxisCall = d3.axisBottom(vis.x).tickValues("")
 		const yAxisCall = d3.axisLeft(vis.y).tickValues("")
