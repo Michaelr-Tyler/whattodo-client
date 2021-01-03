@@ -14,7 +14,7 @@ export const Dashboard = (props) => {
   useEffect(()=>{
     getTodos()
   },[])
-  console.log("dashboard",todos)
+
   const renderChart = () => {
     if(todos.length === 0) {
       return (

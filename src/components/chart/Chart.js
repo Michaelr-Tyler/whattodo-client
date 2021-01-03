@@ -9,8 +9,6 @@ class Chart {
 	constructor(element, todos) {
 		let vis = this
     vis.data = todos
-    
-		console.log(vis.data)
 
 		vis.g = d3.select(element)
 			.append("svg")
