@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { CategorieProvider } from "./category/CategoryDataProvider";
 import { TodoProvider } from "./todos/TodoDataProvider";
@@ -9,6 +9,8 @@ import { TodoList } from "./todos/TodoList";
 import { Dashboard } from "./dash/Dashboard";
 import { Container } from "react-bootstrap";
 import { UserDataProvider } from "./user/UserDataProvider";
+import { TagForm } from "./tags/TagForm";
+import { TagList } from "./tags/TagList";
 
 
 
@@ -24,7 +26,7 @@ export const ApplicationViews = () => {
                   return <Redirect to="/login" />;
                 }}
               />
-              <Container fluid="xs" className="p-3">
+              <Container fluid="xs" className="p-3 bg-dark">
                   <TodoProvider>
                   <CategorieProvider>
                   <UserDataProvider>
@@ -33,7 +35,8 @@ export const ApplicationViews = () => {
                   </CategorieProvider>
                   </TodoProvider>
                   <TagsProvider>
-                      <Route exact path="/tags" component={TagManager} />
+                      <Route exact path="/tags" component={TagForm} />
+                      <Route exact path="/tags" component={TagList} />
                   </TagsProvider>
                   <TodoProvider>
                   <TagsProvider>

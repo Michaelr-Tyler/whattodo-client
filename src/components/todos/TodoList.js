@@ -4,6 +4,8 @@ import { ListGroup, Row, Col } from "react-bootstrap";
 import { TodoContext } from "./TodoDataProvider";
 import { CategorySelect } from "./CategorySelect";
 import SubmitButton from "../utils/SubmitButton";
+import { GrEdit } from "react-icons/gr";
+import { GoChecklist } from "react-icons/go";
 
 
 export const TodoList = (props) => {
@@ -28,13 +30,13 @@ export const TodoList = (props) => {
         <ListGroup variant="flush">{todos.map((td)=>{
                 return (
                 <ListGroup.Item>
-                    <Row xs={2} md ={4} lg={4}>
+                    <Row xs={1} sm={4}>
                      <Todo key={td.id} task={td.task} tags={td.tags} category={td.category.label} />
-                     <Col>
-                     <SubmitButton label={"Edit"} onClick={(e)=> {
+                     <Col className="d-flex justify-content-end">
+                     <SubmitButton  label={<GrEdit />} onClick={(e)=> {
                          e.preventDefault()
                          props.history.push(`/todo/create/${td.id}`)}} />
-                     <SubmitButton label={"Cross off"} onClick={(e)=> {
+                     <SubmitButton label={<GoChecklist />} onClick={(e)=> {
                          e.preventDefault()
                          deleteTodo(td.id)
                          .then(()=> {

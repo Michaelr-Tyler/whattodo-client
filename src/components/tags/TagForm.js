@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, FormGroup, Row } from "react-bootstrap";
+import { Form, FormGroup, Row, Col } from "react-bootstrap";
 import { TagContext } from "../tags/TagsDataProvider";
 import SubmitButton from "../utils/SubmitButton";
 
@@ -30,22 +30,25 @@ export const TagForm = () => {
       }
 
     return (
-        <Form onSubmit={handleSubmitButtonPress} className="my-4">
-            <Row className="flex-column">
-                <FormGroup>
-                <Form.Control
-                    className="w-75 mx-auto"
-                    type="text"
-                    placeholder="Add text"
-                    name="label"
-                    value={tag.label}
-                    autoComplete={"off"}
-                    onChange={handleControlledInputChange}
-                />
-                </FormGroup>
-
-                <SubmitButton label={"Add Tag"} />
-            </Row>
+        <Form onSubmit={handleSubmitButtonPress} className="d-flex justify-content-center mb-4">
+              <Form.Label className="mr-2"><h3>New Tag</h3></Form.Label>
+          <Row>
+            <Col>
+              <FormGroup>
+                    <Form.Control
+                        type="text"
+                        placeholder="Add tag"
+                        name="label"
+                        value={tag.label}
+                        autoComplete={"off"}
+                        onChange={handleControlledInputChange}
+                    />
+              </FormGroup>
+            </Col>
+            <Col>
+              <SubmitButton label={"Add Tag"} />
+            </Col>
+          </Row>
         </Form>
 
         )

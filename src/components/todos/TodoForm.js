@@ -1,6 +1,6 @@
 //component to handle todo's added and edited
 import React,{useRef, useState, useContext, useEffect} from "react";
-import { Form, FormGroup, Row, Col } from "react-bootstrap";
+import { Form, FormGroup, Row, Col, Container } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import { TodoTagForm } from "../todotags/TodoTagForm";
 import SubmitButton from "../utils/SubmitButton";
@@ -70,7 +70,7 @@ export const TodoForm = (props) => {
             }
             if(isEditMode) {
                 updateTodo(props.match.params.todoId, newTodo)
-                .then(props.history.push(`/`))
+                .then(props.history.push(`/todo`))
             } else {
                 createTodo(newTodo)
                 .then(getTodos)
@@ -80,21 +80,23 @@ export const TodoForm = (props) => {
     }
 
     return (
-
-                <Form  style={{ width: '40rem' }}>
-                    <h1 className="text-center my-4">
+            
+            <Container fluid>
+                <Row className="justify-content-center">
+                <Form style={{width:'50rem'}}>
+                    <h1 className="text-center">
                         {isEditMode ? "Edit Todo" : "Create Todo"}
                     </h1>
                     <FormGroup>
-                        <Col>
+                        <Col className="justify-content-center">
                         <Form.Label>Task</Form.Label>
                         <Form.Control type="text" placeholder="Enter a task" ref={taskRef} />
                         </Col>
                     </FormGroup>  
                     <FormGroup>
-                        <Row sm={1} md={4}>
-                        <Col lg="6">
-                        <Form.Label column sm="4">
+                        <Row>
+                        <Col>
+                        <Form.Label>
                         Importance
                         </Form.Label>
                             <div className="text-muted">
@@ -110,8 +112,8 @@ export const TodoForm = (props) => {
                                 tooltip={'off'}
                             />
                         </Col>
-                        <Col lg="6">
-                        <Form.Label column sm="4">
+                        <Col>
+                        <Form.Label>
                         Urgency
                         </Form.Label>
                             <div className="text-muted">
@@ -128,11 +130,13 @@ export const TodoForm = (props) => {
                         </Col>
                         </Row>
                     </FormGroup>
+                    <Row className="justify-content-center">
                     <TodoTagForm 
                     selectedTodoTagIds={selectedTodoTagIds}
                     onToggleTodoTag={onToggleTodoTag}
                     />
-                    <Row>
+                    </Row>
+                    <Row className="justify-content-center">
                         <SubmitButton 
                         label={isEditMode ? "Update Todo" : "Submit Todo"}
                         onClick ={(e)=>{
@@ -142,5 +146,8 @@ export const TodoForm = (props) => {
                         />
                     </Row>
                 </Form>
+                </Row>
+            </Container>
+            
     )
 }
