@@ -1,7 +1,7 @@
-import React, { useContext }  from "react";
+import React from "react";
 import { Col } from "react-bootstrap";
 import { TodoTagList } from "../todotags/TodoTagsList";
-import { TodoContext } from "./TodoDataProvider";
+
 
 
 
@@ -14,7 +14,7 @@ export const Todo = (props) => {
                     <h5>{props.task}</h5>
                 </Col>
                 <Col className="d-flex justify-content-end">
-                    <TodoTagList todoTags={props.tags}/>
+                    <TodoTagList onClick={()=> console.log(props.tags)} todoTags={props.tags}/>
                 </Col>
                 
                 {props.category ? <Col className="d-flex justify-content-end text-muted">

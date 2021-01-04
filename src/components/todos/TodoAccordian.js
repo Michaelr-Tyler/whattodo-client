@@ -18,12 +18,12 @@ const TodoAccordian = (props) => {
     
 
     return (
-        <Accordion defaultActiveKey={1}>
+        <Accordion className="bg-dark mb-4">
             <Card>
                 {categories.map((c)=>{
                     return(<Fragment key={c.id}>
-                        <Card.Header>
-                            <Accordion.Toggle as={Button} variant="link" eventKey={c.id}>
+                        <Card.Header className="bg-secondary border">
+                            <Accordion.Toggle as={Button} variant="secondary" eventKey={c.id}>
                             <h3>{c.label}</h3>
                             </Accordion.Toggle>
                         </Card.Header>
@@ -31,7 +31,7 @@ const TodoAccordian = (props) => {
                             <ListGroup variant="flush">{todos.map((td)=>{
                                 if (td.category.id === c.id) {
                                     return (
-                                        <ListGroup.Item>
+                                        <ListGroup.Item className="bg-light">
                                             <Row>
                                                 <Todo key={td.id} task={td.task} tags={td.tags}/>
                                             </Row>

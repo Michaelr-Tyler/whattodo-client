@@ -2,8 +2,11 @@ import * as d3 from 'd3'
 
 
 
-
 const MARGIN = { TOP: 10, BOTTOM: 10, LEFT: 10, RIGHT:50 }
+const ScreenSize = () => {
+	if(window.innerWidth <= 375){
+return MARGIN
+}}
 const WIDTH = 400 - MARGIN.LEFT - MARGIN.RIGHT
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM 
 
@@ -69,21 +72,21 @@ class Chart {
     vis.g.append("text")
 		.attr("x", WIDTH/4)
 		.attr("y", HEIGHT/2.1)
-		.attr("font-size", 10)
+		.attr("font-size", 15)
 		.attr("text-anchor", "middle")
     .text("More Urgent")
     
     vis.g.append("text")
 		.attr("x", WIDTH/1.5)
 		.attr("y", HEIGHT/2.1)
-		.attr("font-size", 10)
+		.attr("font-size", 15)
 		.text("Less Urgent")
 
 		vis.g.append("text")
 		.attr("x", -(HEIGHT / 4))
 		.attr("y", WIDTH/2.1)
 		.attr("transform", "rotate(-90)")
-		.attr("font-size", 10)
+		.attr("font-size", 15)
 		.attr("text-anchor", "middle")
     .text("More important")
 
@@ -91,7 +94,7 @@ class Chart {
 		.attr("x", -(HEIGHT - 75))
 		.attr("y", WIDTH/2.1)
 		.attr("transform", "rotate(-90)")
-		.attr("font-size", 10)
+		.attr("font-size", 15)
 		.attr("text-anchor", "middle")
 		.text("Less important")
 
