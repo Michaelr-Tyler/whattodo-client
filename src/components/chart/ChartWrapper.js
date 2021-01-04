@@ -16,7 +16,10 @@ const ChartWrapper = (props) => {
 	}, [chart, props.todos])
 
 	return (
-		<div className="chart-area" style={{"textAlign": "center"}} ref={chartArea}></div>
+		<>
+			<div className="chart-area" style={{"textAlign": "center"}} ref={chartArea}></div>
+			{/* <div className="chart-area" style={{"textAlign": "center"}} ref={toolTipArea}></div> */}
+		</>
 	)
 }
 

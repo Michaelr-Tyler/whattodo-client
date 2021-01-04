@@ -36,11 +36,11 @@ export const Dashboard = () => {
       </Col>
     </Row>
       <Row>
-        <Col>
+        <Col style={{minWidth:"375px"}}>
           <TodoAccordian />
         </Col>
         <Col>
-        <Card>
+        <Card style={{minWidth:"375px"}}>
           {renderChart()}
         </Card>
         </Col>
