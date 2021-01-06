@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { Col, Container, Form, Modal, Row } from "react-bootstrap";
+
 
 export const Login = () => {
   const username = useRef();
@@ -38,57 +40,41 @@ export const Login = () => {
   return (
     <main className="container--login">
       <dialog className="dialog dialog--auth" ref={invalidDialog}>
-        <div>username or password was not valid.</div>
-        <button
+        <Modal.Body>
+          <div>username or password was not valid.</div>
+        </Modal.Body>
+        <Button
           className="button--close"
           onClick={(e) => invalidDialog.current.close()}
         >
           Close
-        </button>
+        </Button>
       </dialog>
-      <section>
-        <form className="form--login" onSubmit={handleLogin}>
-          <h1>What To Do</h1>
-          <h2>Please sign in</h2>
-          <fieldset>
-            <label htmlFor="inputUsername"> Username </label>
-            <input
-              ref={username}
-              type="username"
-              id="username"
-              className="form-control"
-              defaultValue="michael"
-              placeholder="username"
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label htmlFor="inputPassword"> Password </label>
-            <input
-              ref={password}
-              type="password"
-              id="password"
-              className="form-control"
-              defaultValue="me"
-              placeholder="Password"
-              required
-            />
-          </fieldset>
-          <fieldset
-            style={{
-              textAlign: "center",
-            }}
-          >
+      <Container className="mt-5">
+        <Form className="form--login" onSubmit={handleLogin}>
+          <Form.Group>
+            <Form.Label><h1>What To Do?</h1></Form.Label>
+            <br />
+            <Form.Label><h4>Please sign in</h4></Form.Label>
+          </Form.Group>
+          <Form.Group style={{width:"20rem"}}>
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="username" ref={username} id="username" defaultValue="michael" placeholder="username" required autoFocus />
+          </Form.Group>
+          <Form.Group style={{width:"20rem"}}>
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={password} id="password" defaultValue="me" placeholder="Password" required />
+          </Form.Group>
             <Button className="btn btn-1 " type="submit">
               Sign In
             </Button>
-          </fieldset>
-        </form>
-      </section>
-      <section className="link--register">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
+        </Form>
+        <Row style={{width:"20rem"}}>
+          <Col className="d-flex justify-content-center">
+            <Link to="/register">Not a member yet?</Link>
+          </Col>
+        </Row>
+      </Container>
     </main>
   );
 };

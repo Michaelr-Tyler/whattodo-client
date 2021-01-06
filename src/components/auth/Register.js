@@ -59,13 +59,11 @@ export const Register = props => {
   }
 
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1 className="text-center">What to do?</h1>
+    <main>
+      <h1>What to do?</h1>
       <Form onSubmit={handleFormSubmit}>
-        <Row className="justify-content-around" style={{ minHeight: '450px' }}>
-
-          <Col sm="12" md="5" className="d-flex flex-column align-items-center justify-content-between">
-
+        <Row>
+          <Col>
             <Form.Control type="text" 
               required
               className="my-2"
@@ -91,7 +89,7 @@ export const Register = props => {
               value={formValues.email || ''} />
           </Col>
 
-          <Col sm="12" md="5" className="d-flex flex-column align-items-center justify-content-between">
+          <Col>
             <Form.Control type="text"
               required
               className="my-2"
@@ -118,10 +116,10 @@ export const Register = props => {
           </Col>
         </Row>
 
-        <Button type="submit" variant="success" className="d-block mx-auto my-4 w-25">Register</Button>
+        <Button type="submit">Register</Button>
       </Form>
 
-      <Row className="justify-content-center">
+      <Row>
         <Link to="/login">Already Have an account? Click here to log in!</Link>
       </Row>
     </main>
