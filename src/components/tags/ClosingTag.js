@@ -17,7 +17,6 @@ export default ({ removeTagId }) => {
           style={{color: "white"}} 
           />
       </Badge> 
- 
   );
 };
 
