@@ -12,8 +12,6 @@ import { UserDataProvider } from "./user/UserDataProvider";
 import { TagForm } from "./tags/TagForm";
 import { TagList } from "./tags/TagList";
 
-
-
 export const ApplicationViews = () => {
         return (
             <>
