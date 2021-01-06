@@ -27,6 +27,12 @@ export const TodoProvider = props =>{
         setTodos(todos)
     }
 
+    const getTodosByTag = async (tagId)=>{
+        const response = await request(`http://localhost:8000/todos?tagId=${tagId}`)
+        const todos = await response.json()
+        setTodos(todos)
+    }
+
     const createTodo = async (todo) => {
         return await request(`http://localhost:8000/todos`,'POST', todo)
     }
@@ -47,7 +53,8 @@ export const TodoProvider = props =>{
             updateTodo, 
             deleteTodo, 
             getTodosByCategory, 
-            getSingleTodo
+            getSingleTodo,
+            getTodosByTag
         }}>
             {props.children}
         </TodoContext.Provider>

@@ -1,19 +1,26 @@
 import React from "react";
 import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
 
-export const TodoTagList = ({ todoTags, onClick }) => {
+export const TodoTagList = ({ todoTags, settingTagId }) => {
 
   return (
     <>
-      <div>
         {todoTags.map((todoTag) => {
           return (
-            <Badge onClick={onClick} pill variant="primary" className="mx-1" key={todoTag.id}>
-              {todoTag.label}
+
+            <Badge as={Button} pill 
+            onClick={(e)=>{ 
+              e.preventDefault() 
+              settingTagId(todoTag.id)}} 
+              variant="primary" 
+              className="mx-1" 
+              key={todoTag.id}
+              > {todoTag.label} 
             </Badge>
+
           );
         })}
-      </div>
     </>
   );
 };
