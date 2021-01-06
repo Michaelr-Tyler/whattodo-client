@@ -70,6 +70,7 @@ export const TodoForm = (props) => {
             }
             if(isEditMode) {
                 updateTodo(props.match.params.todoId, newTodo)
+                .then(getTodos)
                 .then(props.history.push(`/todo`))
             } else {
                 createTodo(newTodo)
