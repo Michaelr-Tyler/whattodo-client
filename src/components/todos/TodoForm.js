@@ -75,7 +75,7 @@ export const TodoForm = (props) => {
             } else {
                 createTodo(newTodo)
                 .then(getTodos)
-                .then(() => props.history.push(`/`))
+                .then(() => props.history.push(`/todo`))
             }
         }
     }
@@ -85,24 +85,23 @@ export const TodoForm = (props) => {
             <Container fluid>
                 <Row className="justify-content-center">
                 <Form style={{width:'50rem'}}>
-                    <h1 className="text-center">
+                    <h1  style={{color:"white"}} className="text-center">
                         {isEditMode ? "Edit Todo" : "Create Todo"}
                     </h1>
                     <FormGroup>
                         <Col className="justify-content-center">
-                        <Form.Label>Task</Form.Label>
                         <Form.Control type="text" placeholder="Enter a task" ref={taskRef} />
                         </Col>
                     </FormGroup>  
                     <FormGroup>
                         <Row>
-                        <Col>
-                        <Form.Label>
+                        <Col  className="text-center">
+                        <Form.Label style={{color:"white"}}>
                         Importance
                         </Form.Label>
                             <div className="text-muted">
                                 Think about scoring this higher if you must complete this, 
-                                or perhaps someone else is uncapable of completing this task.
+                                or perhaps someone else is incapable of completing this task.
 
                             </div>
                             <RangeSlider
@@ -113,8 +112,8 @@ export const TodoForm = (props) => {
                                 tooltip={'off'}
                             />
                         </Col>
-                        <Col>
-                        <Form.Label>
+                        <Col className="text-center">
+                        <Form.Label  style={{color:"white"}}>
                         Urgency
                         </Form.Label>
                             <div className="text-muted">
