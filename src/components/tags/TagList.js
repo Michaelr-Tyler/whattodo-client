@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
 import Tag from "./Tag";
+import { TagForm } from "./TagForm";
 import { TagContext } from "./TagsDataProvider";
 
 
@@ -29,6 +30,7 @@ export const TagList = () => {
             <Container fluid>
               <Row>
                 <Col className="d-flex justify-content-center">
+                  <TagForm />
                   <h1>Add some tags to help organize your tasks even more!</h1>
                 </Col>
               </Row>
@@ -36,7 +38,13 @@ export const TagList = () => {
             )
         } else {
           return (
-            <Container className="d-flex justify-content-center">
+            <Container fluid>
+              <Row>
+                <Col>
+                  <TagForm />
+                </Col>
+              </Row>
+              <Row>
               <ListGroup style={{width: "50rem"}}>
                 {tags.map((t) => {
                     return (
@@ -59,6 +67,7 @@ export const TagList = () => {
                         )
                       })}
                       </ListGroup>
+              </Row>
             </Container>
             );
         }

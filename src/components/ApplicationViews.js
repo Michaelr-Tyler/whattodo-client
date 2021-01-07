@@ -9,7 +9,6 @@ import { TodoList } from "./todos/TodoList";
 import { Dashboard } from "./dash/Dashboard";
 import { Container } from "react-bootstrap";
 import { UserDataProvider } from "./user/UserDataProvider";
-import { TagForm } from "./tags/TagForm";
 import { TagList } from "./tags/TagList";
 
 export const ApplicationViews = () => {
@@ -33,7 +32,6 @@ export const ApplicationViews = () => {
                   </CategorieProvider>
                   </TodoProvider>
                   <TagsProvider>
-                      <Route exact path="/tags" component={TagForm} />
                       <Route exact path="/tags" component={TagList} />
                   </TagsProvider>
                   <TodoProvider>

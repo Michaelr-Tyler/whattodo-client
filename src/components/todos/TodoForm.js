@@ -84,7 +84,7 @@ export const TodoForm = (props) => {
             <Container fluid>
                 <Row className="justify-content-center">
                 <Form style={{width:'50rem'}}>
-                    <h1  style={{color:"white"}} className="text-center">
+                    <h1  style={{color:"#FFF"}} className="text-center">
                         {isEditMode ? "Edit Todo" : "Create Todo"}
                     </h1>
                     <FormGroup>

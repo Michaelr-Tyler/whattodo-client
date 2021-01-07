@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Form, FormGroup, Row, Col, Button } from "react-bootstrap";
+import { Form, FormGroup, Row, Col, Button, Container } from "react-bootstrap";
 import { TagContext } from "../tags/TagsDataProvider";
-
 
 export const TagForm = () => {
     const { tags, createTag, getTags } = useContext(TagContext)
@@ -30,8 +29,11 @@ export const TagForm = () => {
       }
 
     return (
-        <Form onSubmit={handleSubmitButtonPress} className="d-flex justify-content-center mb-4">
-              <Form.Label className="mr-2"><h3>New Tag</h3></Form.Label>
+      <Container fluid>
+        <Form onSubmit={handleSubmitButtonPress}>
+          <Row>
+              <h3>New Tag</h3>
+          </Row>
           <Row>
             <Col>
               <FormGroup>
@@ -46,10 +48,11 @@ export const TagForm = () => {
               </FormGroup>
             </Col>
             <Col>
-              <Button>Add Tag</Button>
+              <Button>New tag</Button>
             </Col>
           </Row>
         </Form>
+      </Container>
 
         )
 }
