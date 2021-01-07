@@ -30,11 +30,12 @@ export const TagForm = () => {
       }
 
     return (
-        <Form onSubmit={handleSubmitButtonPress} className="d-flex justify-content-center mb-4">
-              <Form.Label className="mr-2"><h3>New Tag</h3></Form.Label>
-          <Row>
-            <Col>
-              <FormGroup>
+          <Row className="d-flex justify-content-center">
+            <Form onSubmit={handleSubmitButtonPress} className="d-flex mb-4 mt-4">
+            <Col  xs={3} className="d-flex align-items-center">
+              <h5 className="">New Tag</h5>
+            </Col>
+            <Col xs={8} className="d-flex align-items-center">
                     <Form.Control
                         type="text"
                         placeholder="Add tag"
@@ -43,13 +44,12 @@ export const TagForm = () => {
                         autoComplete={"off"}
                         onChange={handleControlledInputChange}
                     />
-              </FormGroup>
             </Col>
-            <Col>
+            <Col xs={4} className="d-flex align-items-center">
               <Button>Add Tag</Button>
             </Col>
+            </Form>
           </Row>
-        </Form>
 
         )
 }

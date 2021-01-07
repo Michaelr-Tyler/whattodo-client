@@ -77,7 +77,7 @@ export const Login = () => {
           </Row>
           <Row style={{color:"#c0c8ce"}} className="d-flex fixed-bottom text-center mb-2">
             <Col>
-              <footer>image belongs to @kellysikkema</footer>
+              <footer>image belongs to Jessica Lewis</footer>
             </Col>
           </Row>
         </Container>
