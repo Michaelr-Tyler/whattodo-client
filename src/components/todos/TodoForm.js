@@ -74,79 +74,80 @@ export const TodoForm = (props) => {
             } else {
                 createTodo(newTodo)
                 .then(getTodos)
-                .then(() => props.history.push(`/`))
+                
             }
         }
     }
 
     return (
             
-            <Container fluid>
+        <Container className="mt-5" fluid>
+            <Row className="justify-content-center">
+            <Form style={{width:'50rem'}}>
+                <Col className="d-flex justify-content-center">
+                <h1  style={{color:"#2A2B26", fontSize:"50px", fontWeight:"bold", background:"#DDE2E3", borderRadius: "25px", width:"25rem"}} className="d-flex justify-content-center">
+                    {isEditMode ? "Edit Todo" : "Add a new todo"}
+                </h1>
+                </Col>
+                <FormGroup>
+                    <Col className="justify-content-center">
+                    <Form.Control style={{background:"#DDE2E3", fontWeight:"bold"}} type="text" placeholder="Enter a task" ref={taskRef} />
+                    </Col>
+                </FormGroup>  
+                <FormGroup>
+                    <Row>
+                    <Col  className="text-center">
+                    <Form.Label style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"5px", fontWeight:"bold"}}>
+                    Importance
+                    </Form.Label>
+                        <div style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"2px", fontWeight:"bold"}}>
+                            Think about scoring this higher if you must be the one to complete this
+                        </div>
+                        <RangeSlider
+                            className="mt-3"
+                            value={importantRating}
+                            onChange={e => setImportantRating(e.target.value)}
+                            min = {1}
+                            max = {10}
+                            tooltip={'off'}
+                        />
+                    </Col>
+                    <Col className="text-center">
+                    <Form.Label  style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"5px", fontWeight:"bold"}}>
+                    Urgency
+                    </Form.Label>
+                        <div style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", fontWeight:"bold"}}>
+                        Think about scoring this higher if you need to complete this by today or tomorrow
+                        </div>
+                        <RangeSlider
+                            className="mt-3"
+                            value={urgentRating}
+                            onChange={e => {
+                                setUrgentRating(e.target.value)}}
+                            min = {1}
+                            max = {10}
+                            tooltip={'off'}
+                        />
+                    </Col>
+                    </Row>
+                </FormGroup>
                 <Row className="justify-content-center">
-                <Form style={{width:'50rem'}}>
-                    <h1 className="text-center">
-                        {isEditMode ? "Edit Todo" : "Create Todo"}
-                    </h1>
-                    <FormGroup>
-                        <Col className="justify-content-center">
-                        <Form.Label>Task</Form.Label>
-                        <Form.Control type="text" placeholder="Enter a task" ref={taskRef} />
-                        </Col>
-                    </FormGroup>  
-                    <FormGroup>
-                        <Row>
-                        <Col>
-                        <Form.Label>
-                        Importance
-                        </Form.Label>
-                            <div className="text-muted">
-                                Think about scoring this higher if you must complete this, 
-                                or perhaps someone else is uncapable of completing this task.
-
-                            </div>
-                            <RangeSlider
-                                value={importantRating}
-                                onChange={e => setImportantRating(e.target.value)}
-                                min = {1}
-                                max = {10}
-                                tooltip={'off'}
-                            />
-                        </Col>
-                        <Col>
-                        <Form.Label>
-                        Urgency
-                        </Form.Label>
-                            <div className="text-muted">
-                            Think about scoring this higher if you need to complete this by today or tomorrow. 
-                            </div>
-                            <RangeSlider
-                                value={urgentRating}
-                                onChange={e => {
-                                    setUrgentRating(e.target.value)}}
-                                min = {1}
-                                max = {10}
-                                tooltip={'off'}
-                            />
-                        </Col>
-                        </Row>
-                    </FormGroup>
-                    <Row className="justify-content-center">
-                    <TodoTagForm 
-                    selectedTodoTagIds={selectedTodoTagIds}
-                    onToggleTodoTag={onToggleTodoTag}
-                    />
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Button   
-                        onClick ={(e)=>{
-                            e.preventDefault();
-                            constructNewTodo();
-                        }}
-                        >{isEditMode ? "Update Todo" : "Submit Todo"}</Button>
-                    </Row>
-                </Form>
+                <TodoTagForm 
+                selectedTodoTagIds={selectedTodoTagIds}
+                onToggleTodoTag={onToggleTodoTag}
+                />
                 </Row>
-            </Container>
+                <Row className="justify-content-center">
+                    <Button   
+                    onClick ={(e)=>{
+                        e.preventDefault();
+                        constructNewTodo();
+                    }}
+                    >{isEditMode ? "Update Todo" : "Submit Todo"}</Button>
+                </Row>
+            </Form>
+            </Row>
+        </Container>
             
     )
 }

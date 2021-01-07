@@ -40,13 +40,13 @@ export const TagList = () => {
               <ListGroup style={{width: "50rem"}}>
                 {tags.map((t) => {
                     return (
-                            <ListGroup.Item key={t.id}>
-                                <Row>
-                                  <Col>
+                            <ListGroup.Item style={{borderRadius:"50px 10px 50px 15px"}} className="m-1" key={t.id}>
+                                <Row className="d-flex">
                                     <Tag tag={t} />
-                                  </Col>
                                   <Col className="d-flex justify-content-end">
                                     <Button 
+                                    className="mr-3"
+                                    style={{borderRadiu:"50px"}}
                                     variant={"danger"} 
                                     onClick={(e) => {
                                         e.preventDefault()
