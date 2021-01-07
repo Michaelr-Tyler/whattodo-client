@@ -8,13 +8,9 @@ export const Todo = (props) => {
 
 
     return (
-        
-            <>
-                <Col>
-                <h5>{props.task}</h5>              
-                </Col>
-            </>
-         
+            <Col className="d-flex justify-content-center">
+                <div class="d-flex align-items-center">{props.task}</div>             
+            </Col>
         )
     
     

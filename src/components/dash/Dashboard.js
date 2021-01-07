@@ -36,17 +36,7 @@ export const Dashboard = () => {
       </Col>
     </Row>
       <Row>
-        <Col style={{minWidth:"375px"}}>
-          <TodoAccordian />
-        </Col>
-        <Col>
-        <Card style={{minWidth:"375px"}}>
-          {renderChart()}
-        </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+      <Col>
           <Card bg="secondary" border="light" className="mt-4">
             <Card.Img variant="top" src={MatrixImage} />
             <Card.Header as="h5">What is the Eisenhower matrix?</Card.Header>
@@ -62,6 +52,12 @@ export const Dashboard = () => {
               </Card.Text>
             </Card.Body>
           </Card>
+        </Col>
+        <Col>
+        <Card className="mt-4" style={{minWidth:"375px"}}>
+          {renderChart()}
+        </Card>
+          <TodoAccordian />
         </Col>
       </Row>
       <Row className="mt-2">

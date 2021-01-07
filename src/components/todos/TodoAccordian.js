@@ -6,7 +6,7 @@ import { TodoTagList } from "../todotags/TodoTagsList";
 import { Todo } from "./Todo";
 import { TodoContext } from "./TodoDataProvider";
 
-const TodoAccordian = (props) => {
+const TodoAccordian = () => {
     const {todos, getTodos} = useContext(TodoContext)
     const {categories, getCategories} = useContext(CategoryContext)
 
@@ -19,11 +19,11 @@ const TodoAccordian = (props) => {
     
 
     return (
-        <Accordion className="bg-dark mb-4">
+        <Accordion className="bg-dark mb-2 mt-4">
             <Card>
                 {categories.map((c)=>{
                     return(<Fragment key={c.id}>
-                        <Card.Header className="bg-secondary border">
+                        <Card.Header className="bg-secondary">
                             <Accordion.Toggle as={Button} variant="secondary" eventKey={c.id}>
                             <h3>{c.label}</h3>
                             </Accordion.Toggle>
