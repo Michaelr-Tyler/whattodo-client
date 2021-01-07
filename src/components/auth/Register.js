@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { Col, Form, Button, Row } from "react-bootstrap"
+import { Col, Form, Button, Row, Container, Card } from "react-bootstrap"
 
 export const Register = props => {
   const [ formValues, setFormValues ] = useState({})
@@ -59,69 +59,68 @@ export const Register = props => {
   }
 
   return (
-    <main>
-      <h1>What to do?</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <Row>
-          <Col>
-            <Form.Control type="text" 
-              required
-              className="my-2"
-              name="first_name"
-              placeholder="First Name" 
-              onChange={handleFormChange} 
-              value={formValues.first_name || ''} />
 
-            <Form.Control type="text"
-              required
-              className="my-2"
-              name="last_name"
-              placeholder="Last Name"
-              onChange={handleFormChange}
-              value={formValues.last_name || ''}  />
+      <Container className="my-5">
+        <Form.Label><h1 style={{color:"#e6e3f1"}}>What to do?</h1></Form.Label>
+        <Form onSubmit={handleFormSubmit}>
+          <Row  style={{border:"5px solid white", "borderRadius": "10px 40px 20px 50px", width:"20rem"}} className="p-2">
+            <Col>
+              <Form.Control type="text" 
+                required
+                className="my-2"
+                name="first_name"
+                placeholder="First Name" 
+                onChange={handleFormChange} 
+                value={formValues.first_name || ''} />
 
-            <Form.Control type="email"
-              required
-              className="my-2"
-              name="email"
-              placeholder="Email"
-              onChange={handleFormChange}
-              value={formValues.email || ''} />
-          </Col>
+              <Form.Control type="text"
+                required
+                className="my-2"
+                name="last_name"
+                placeholder="Last Name"
+                onChange={handleFormChange}
+                value={formValues.last_name || ''}  />
 
-          <Col>
-            <Form.Control type="text"
-              required
-              className="my-2"
-              name="username"
-              placeholder="Username"
-              onChange={handleFormChange}
-              value={formValues.username || ''}  />
+              <Form.Control type="email"
+                required
+                className="my-2"
+                name="email"
+                placeholder="Email"
+                onChange={handleFormChange}
+                value={formValues.email || ''} />
 
-            <Form.Control type="password"
-              required
-              className="my-2"
-              name="password"
-              placeholder="Password"
-              onChange={handleFormChange}
-              value={formValues.password || ''}  />
+              <Form.Control type="text"
+                required
+                className="my-2"
+                name="username"
+                placeholder="Username"
+                onChange={handleFormChange}
+                value={formValues.username || ''}  />
 
-            <Form.Control type="password"
-              required
-              className="my-2"
-              name="verifyPassword"
-              placeholder="Verify Password"
-              onChange={handleFormChange}
-              value={formValues.verifyPassword || ''}  />
-          </Col>
-        </Row>
+              <Form.Control type="password"
+                required
+                className="my-2"
+                name="password"
+                placeholder="Password"
+                onChange={handleFormChange}
+                value={formValues.password || ''}  />
 
-        <Button type="submit">Register</Button>
-      </Form>
+              <Form.Control type="password"
+                required
+                className="my-2"
+                name="verifyPassword"
+                placeholder="Verify Password"
+                onChange={handleFormChange}
+                value={formValues.verifyPassword || ''}  />
+            </Col>
 
+          </Row>
+          <Button className="m-2" variant="info" type="submit">Register</Button>
       <Row>
-        <Link to="/login">Already Have an account? Click here to log in!</Link>
+        <Link style={{color:"#fff"}} to="/login">Already Have an account? Click here to log in!</Link>
       </Row>
-    </main>
+        </Form>
+
+      </Container>
   )
 }
