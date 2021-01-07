@@ -4,6 +4,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default ({ removeTagId }) => {
   return (
+    <h5>
       <Badge as={Button}
       onClick={(e)=>{ 
         e.preventDefault() 
@@ -13,10 +14,8 @@ export default ({ removeTagId }) => {
         variant="primary" 
         className="m-1"> 
         Remove filter
-          <AiOutlineCloseCircle 
-          style={{color: "white"}} 
-          />
       </Badge> 
+    </h5>
   );
 };
 

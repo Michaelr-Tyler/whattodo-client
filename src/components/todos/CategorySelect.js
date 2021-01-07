@@ -12,8 +12,11 @@ export const CategorySelect = (props) => {
 
 
     return (
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control size="sm" as="select" 
+                <Form.Group>
+                    <Form.Control as="select"
+                    className="ml-4"
+                    size="sm" 
+                    style={{width:"20rem"}} 
                     onChange={(e)=>{
                         e.preventDefault() 
                         props.onChange(e.target.value)
