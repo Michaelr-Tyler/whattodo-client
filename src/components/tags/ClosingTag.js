@@ -1,17 +1,16 @@
 import React from "react";
 import { Badge, Button } from "react-bootstrap"
-import { AiOutlineCloseCircle } from "react-icons/ai";
 
-export default ({ removeTagId }) => {
+export default (props) => {
   return (
     <h5>
       <Badge as={Button}
       onClick={(e)=>{ 
         e.preventDefault() 
-        removeTagId()
+        props.setTagId("")
         }} 
         pill 
-        variant="primary" 
+        variant="secondary" 
         className="m-1"> 
         Remove filter
       </Badge> 

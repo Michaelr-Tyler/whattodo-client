@@ -1,9 +1,8 @@
 //component to handle todo's added and edited
 import React,{useRef, useState, useContext, useEffect} from "react";
-import { Form, FormGroup, Row, Col, Container } from "react-bootstrap";
+import { Form, FormGroup, Row, Col, Container, Button } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import { TodoTagForm } from "../todotags/TodoTagForm";
-import SubmitButton from "../utils/SubmitButton";
 import { TodoContext } from "./TodoDataProvider";
 
 
@@ -138,13 +137,12 @@ export const TodoForm = (props) => {
                     />
                     </Row>
                     <Row className="justify-content-center">
-                        <SubmitButton 
-                        label={isEditMode ? "Update Todo" : "Submit Todo"}
+                        <Button   
                         onClick ={(e)=>{
                             e.preventDefault();
                             constructNewTodo();
                         }}
-                        />
+                        >{isEditMode ? "Update Todo" : "Submit Todo"}</Button>
                     </Row>
                 </Form>
                 </Row>

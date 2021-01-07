@@ -17,7 +17,7 @@ export const NavBar = (props) => {
           <Nav className="mr-auto container-fluid"> 
             {/* <Button variant="outline-primary" className="mx-2 my-1" onClick={() => props.history.push("/my-posts")}>My Posts</Button> */}
             <Button variant="outline-info" className="mx-2 my-1" onClick={() => props.history.push("/todo")}>Todo List</Button>
-            <Button variant="outline-info" className="mx-2 my-1" onClick={() => props.history.push("/todo/create")}>Add Task</Button>
+            <Button variant="outline-info" className="mx-2 my-1" onClick={() => props.history.push("/todo/form")}>Add Task</Button>
             <Button variant="outline-info" className="mx-2 my-1" onClick={() => props.history.push("/tags")}>Tag Manager</Button>
             <Button variant="outline-light" className="mx-2 my-1 ml-md-auto" onClick={() => props.history.push("/logout")}>Logout</Button>
           </Nav>

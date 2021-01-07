@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Todo } from "./Todo";
-import { ListGroup, Row, Col, Container } from "react-bootstrap";
+import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
 import { TodoContext } from "./TodoDataProvider";
 import { CategorySelect } from "./CategorySelect";
-import SubmitButton from "../utils/SubmitButton";
 import { GrEdit } from "react-icons/gr";
 import { GoChecklist } from "react-icons/go";
 import { TodoTagList } from "../todotags/TodoTagsList";
@@ -28,33 +27,30 @@ export const TodoList = (props) => {
         }
     },[categoryId, tagId])
 
-    const settingTagId = (id) => {
-        setTagId(id)
-    }
-    const removeTagId = () => {
-        setTagId("")
-    }
-
     
     return (
         <Container className="mt-4">
             <CategorySelect onChange={id => setCategoryId(id)} />
-            {!tagId ? "" : <ClosingTag removeTagId={removeTagId}/>}
+            {!tagId ? "" : <ClosingTag setTagId={setTagId}/>}
             <ListGroup>{todos.map((td)=>{
                 return (
                 <ListGroup.Item style={{"borderRadius":"50px 10px 50px 15px"}} className="m-1">
                     <Row>
                         <Todo key={td.id} task={td.task} />
-                        <TodoTagList settingTagId={settingTagId} todoTags={td.tags}/>
+                        <TodoTagList setTagId={setTagId} todoTags={td.tags}/>
                         <Col className="d-flex justify-content-center">
                             <div className="text-muted d-flex align-items-center">{td.category.label}</div>
                         </Col>
                         <Col className="d-flex justify-content-end">
-                        <SubmitButton  label={<GrEdit />} 
+                        <Button
+                        className="mr-2"
                         onClick={(e)=> {
                             e.preventDefault()
-                            props.history.push(`/todo/create/${td.id}`)}} />
-                        <SubmitButton label={<GoChecklist />} 
+                            props.history.push(`/todo/form/${td.id}`)
+                            }}>
+                                <GrEdit style={{color:"white"}}/>
+                        </Button> 
+                        <Button 
                         onClick={(e)=> {
                             e.preventDefault()
                             deleteTodo(td.id)
@@ -66,7 +62,9 @@ export const TodoList = (props) => {
                             } else {
                                 getTodos()
                             }
-                            })}}/>
+                            })}}>
+                                <GoChecklist style={{color:"black"}}/>
+                            </Button>
                         </Col>
                     </Row>
                 </ListGroup.Item>
