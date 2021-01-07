@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { Col, Container, Form, Modal, Row } from "react-bootstrap";
+import "./Login.css";
+
 
 export const Login = () => {
   const username = useRef();
@@ -36,59 +39,48 @@ export const Login = () => {
   };
 
   return (
-    <main className="container--login">
-      <dialog className="dialog dialog--auth" ref={invalidDialog}>
-        <div>username or password was not valid.</div>
-        <button
-          className="button--close"
-          onClick={(e) => invalidDialog.current.close()}
-        >
-          Close
-        </button>
-      </dialog>
-      <section>
-        <form className="form--login" onSubmit={handleLogin}>
-          <h1>What To Do</h1>
-          <h2>Please sign in</h2>
-          <fieldset>
-            <label htmlFor="inputUsername"> Username </label>
-            <input
-              ref={username}
-              type="username"
-              id="username"
-              className="form-control"
-              defaultValue="michael"
-              placeholder="username"
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label htmlFor="inputPassword"> Password </label>
-            <input
-              ref={password}
-              type="password"
-              id="password"
-              className="form-control"
-              defaultValue="me"
-              placeholder="Password"
-              required
-            />
-          </fieldset>
-          <fieldset
-            style={{
-              textAlign: "center",
-            }}
+      <main className="container--login">
+        <dialog className="dialog dialog--auth" ref={invalidDialog}>
+          <Modal.Body>
+            <div>username or password was not valid.</div>
+          </Modal.Body>
+          <Button
+            className="button--close"
+            onClick={(e) => invalidDialog.current.close()}
           >
-            <Button className="btn btn-1 " type="submit">
-              Sign In
-            </Button>
-          </fieldset>
-        </form>
-      </section>
-      <section className="link--register">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
-    </main>
+            Close
+          </Button>
+        </dialog>
+        <Container>
+          <Form className="d-flex-column mt-5" onSubmit={handleLogin}>
+            <Form.Group>
+              <Form.Label style={{color:"#e6e3f1"}}><h1>What To Do?</h1></Form.Label>
+              <br />
+              <Form.Label style={{color:"#e6e3f1"}}><h4>Please sign in</h4></Form.Label>
+            </Form.Group>
+            <Form.Group style={{width:"20rem"}}>
+                <Form.Label style={{color:"#e6e3f1"}}>Username</Form.Label>
+                <Form.Control type="username" ref={username} id="username" defaultValue="michael" placeholder="username" required autoFocus />
+            </Form.Group>
+            <Form.Group style={{width:"20rem"}}>
+                <Form.Label style={{color:"#e6e3f1"}}>Password</Form.Label>
+                <Form.Control type="password" ref={password} id="password" defaultValue="me" placeholder="Password" required />
+            </Form.Group>
+              <Button variant="info" type="submit">
+                Sign In
+              </Button>
+          </Form>
+          <Row style={{width:"20rem"}}>
+            <Col className="d-flex justify-content-center">
+              <Link to="/register">Not a member yet?</Link>
+            </Col>
+          </Row>
+          <Row style={{color:"#c0c8ce"}} className="d-flex fixed-bottom text-center mb-2">
+            <Col>
+              <footer>image belongs to @kellysikkema</footer>
+            </Col>
+          </Row>
+        </Container>
+      </main>
   );
 };
