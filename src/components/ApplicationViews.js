@@ -24,7 +24,7 @@ export const ApplicationViews = () => {
                   return <Redirect to="/login" />;
                 }}
               />
-              <Container fluid="xs" className="p-3 bg-dark">
+              <Container fluid="xs">
                   <TodoProvider>
                   <CategorieProvider>
                   <UserDataProvider>
@@ -40,8 +40,8 @@ export const ApplicationViews = () => {
                   <TagsProvider>
                   <CategorieProvider>
                       <Route exact path="/todo" component={TodoList} />
-                      <Route exact path="/todo/create" component={TodoForm} />
-                      <Route path="/todo/create/:todoId" component={TodoForm} />
+                      <Route exact path="/todo/form" component={TodoForm} />
+                      <Route path="/todo/form/:todoId" component={TodoForm} />
                   </CategorieProvider>
                   </TagsProvider>
                   </TodoProvider>

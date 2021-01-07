@@ -1,26 +1,41 @@
 import React from "react";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 
-export const TodoTagList = ({ todoTags, settingTagId }) => {
+export const TodoTagList = (props) => {
+
+  props.todoTags.sort((a, b) => {
+    const nameA = a.label.toUpperCase();
+    const nameB = b.label.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
 
   return (
-    <>
-        {todoTags.map((todoTag) => {
+    <Col className="d-flex">
+        {props.todoTags.map((todoTag) => {
           return (
-
+            <div className="d-flex align-items-center">
             <Badge as={Button} pill 
-            onClick={(e)=>{ 
-              e.preventDefault() 
-              settingTagId(todoTag.id)}} 
+              onClick={(e)=>{ 
+                e.preventDefault() 
+                props.setTagId(todoTag.id)
+              }} 
               variant="primary" 
-              className="mx-1" 
+              className="ml-1" 
               key={todoTag.id}
               > {todoTag.label} 
             </Badge>
+            </div>
 
           );
         })}
-    </>
+    </Col>
   );
 };

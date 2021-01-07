@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { Col, Form, Button, Row } from "react-bootstrap"
+import { Col, Form, Button, Row, Container, Card } from "react-bootstrap"
 
 export const Register = props => {
   const [ formValues, setFormValues ] = useState({})
@@ -59,71 +59,68 @@ export const Register = props => {
   }
 
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1 className="text-center">What to do?</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <Row className="justify-content-around" style={{ minHeight: '450px' }}>
 
-          <Col sm="12" md="5" className="d-flex flex-column align-items-center justify-content-between">
+      <Container className="my-5">
+        <Form.Label><h1 style={{color:"#e6e3f1"}}>What to do?</h1></Form.Label>
+        <Form onSubmit={handleFormSubmit}>
+          <Row  style={{border:"5px solid white", "borderRadius": "10px 40px 20px 50px", width:"20rem"}} className="p-2">
+            <Col>
+              <Form.Control type="text" 
+                required
+                className="my-2"
+                name="first_name"
+                placeholder="First Name" 
+                onChange={handleFormChange} 
+                value={formValues.first_name || ''} />
 
-            <Form.Control type="text" 
-              required
-              className="my-2"
-              name="first_name"
-              placeholder="First Name" 
-              onChange={handleFormChange} 
-              value={formValues.first_name || ''} />
+              <Form.Control type="text"
+                required
+                className="my-2"
+                name="last_name"
+                placeholder="Last Name"
+                onChange={handleFormChange}
+                value={formValues.last_name || ''}  />
 
-            <Form.Control type="text"
-              required
-              className="my-2"
-              name="last_name"
-              placeholder="Last Name"
-              onChange={handleFormChange}
-              value={formValues.last_name || ''}  />
+              <Form.Control type="email"
+                required
+                className="my-2"
+                name="email"
+                placeholder="Email"
+                onChange={handleFormChange}
+                value={formValues.email || ''} />
 
-            <Form.Control type="email"
-              required
-              className="my-2"
-              name="email"
-              placeholder="Email"
-              onChange={handleFormChange}
-              value={formValues.email || ''} />
-          </Col>
+              <Form.Control type="text"
+                required
+                className="my-2"
+                name="username"
+                placeholder="Username"
+                onChange={handleFormChange}
+                value={formValues.username || ''}  />
 
-          <Col sm="12" md="5" className="d-flex flex-column align-items-center justify-content-between">
-            <Form.Control type="text"
-              required
-              className="my-2"
-              name="username"
-              placeholder="Username"
-              onChange={handleFormChange}
-              value={formValues.username || ''}  />
+              <Form.Control type="password"
+                required
+                className="my-2"
+                name="password"
+                placeholder="Password"
+                onChange={handleFormChange}
+                value={formValues.password || ''}  />
 
-            <Form.Control type="password"
-              required
-              className="my-2"
-              name="password"
-              placeholder="Password"
-              onChange={handleFormChange}
-              value={formValues.password || ''}  />
+              <Form.Control type="password"
+                required
+                className="my-2"
+                name="verifyPassword"
+                placeholder="Verify Password"
+                onChange={handleFormChange}
+                value={formValues.verifyPassword || ''}  />
+            </Col>
 
-            <Form.Control type="password"
-              required
-              className="my-2"
-              name="verifyPassword"
-              placeholder="Verify Password"
-              onChange={handleFormChange}
-              value={formValues.verifyPassword || ''}  />
-          </Col>
-        </Row>
-
-        <Button type="submit" variant="success" className="d-block mx-auto my-4 w-25">Register</Button>
-      </Form>
-
-      <Row className="justify-content-center">
-        <Link to="/login">Already Have an account? Click here to log in!</Link>
+          </Row>
+          <Button className="m-2" variant="info" type="submit">Register</Button>
+      <Row>
+        <Link style={{color:"#fff"}} to="/login">Already Have an account? Click here to log in!</Link>
       </Row>
-    </main>
+        </Form>
+
+      </Container>
   )
 }

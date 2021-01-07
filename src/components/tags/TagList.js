@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { ListGroup, Row, Col, Container } from "react-bootstrap";
-import SubmitButton from "../utils/SubmitButton";
+import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
 import Tag from "./Tag";
 import { TagContext } from "./TagsDataProvider";
 
@@ -24,7 +23,7 @@ export const TagList = () => {
         getTags();
       }, []);
 
-      const tagList = () => {
+      const tagList = (props) => {
         if(tags.length === 0) {
           return (
             <Container fluid>
@@ -47,14 +46,13 @@ export const TagList = () => {
                                     <Tag tag={t} />
                                   </Col>
                                   <Col className="d-flex justify-content-end">
-                                    <SubmitButton 
-                                    label={"Delete"}
+                                    <Button 
                                     variant={"danger"} 
-                                    onClick={ (e) => {
+                                    onClick={(e) => {
                                         e.preventDefault()
                                         deleteTag(t.id)
                                         .then(getTags)
-                                    }} />
+                                    }}>Delete</Button>
                                   </Col>
                                 </Row>
                             </ListGroup.Item>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Form, FormGroup, Row, Col } from "react-bootstrap";
+import { Form, FormGroup, Row, Col, Button } from "react-bootstrap";
 import { TagContext } from "../tags/TagsDataProvider";
-import SubmitButton from "../utils/SubmitButton";
+
 
 export const TagForm = () => {
     const { tags, createTag, getTags } = useContext(TagContext)
@@ -46,7 +46,7 @@ export const TagForm = () => {
               </FormGroup>
             </Col>
             <Col>
-              <SubmitButton label={"Add Tag"} />
+              <Button>Add Tag</Button>
             </Col>
           </Row>
         </Form>
