@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Col, Form, Button, Row, Container, Card } from "react-bootstrap"
+import { BASE_URL } from "../utils/request"
 
 export const Register = props => {
   const [ formValues, setFormValues ] = useState({})
@@ -36,7 +37,7 @@ export const Register = props => {
         password
       }
 
-      return fetch("http://michaeltyler.pythonanywhere.com/register", {
+      return fetch(`${BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

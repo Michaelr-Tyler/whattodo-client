@@ -14,7 +14,7 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    return fetch("http://michaeltyler.pythonanywhere.com/login", {
+    return fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

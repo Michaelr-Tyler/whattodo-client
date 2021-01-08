@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import { request } from "../utils/request";
+import { BASE_URL, request } from "../utils/request";
 
 
 
@@ -11,7 +11,7 @@ export const CategorieProvider = props =>{
     
 
     const getCategories = async ()=>{
-        const response = await request(`http://michaeltyler.pythonanywhere.com/categories`)
+        const response = await request(`${BASE_URL}/categories`)
         const categories = await response.json()
         setCategories(categories)
     }
