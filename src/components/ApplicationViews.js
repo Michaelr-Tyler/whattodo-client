@@ -3,7 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import { CategorieProvider } from "./category/CategoryDataProvider";
 import { TodoProvider } from "./todos/TodoDataProvider";
 import { TagsProvider } from "./tags/TagsDataProvider";
-import { TagManager } from "./tags/TagManager";
 import { TodoForm } from "./todos/TodoForm";
 import { TodoList } from "./todos/TodoList";
 import { Dashboard } from "./dash/Dashboard";
