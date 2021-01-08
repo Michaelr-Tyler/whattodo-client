@@ -115,7 +115,7 @@ export const TodoForm = (props) => {
                     Importance
                     </Form.Label>
                         <div className="text-muted">
-                            Think about scoring this higher if you must be the one to complete this
+                            Think about scoring this higher if you must be the one to complete this.
                         </div>
                         <RangeSlider
                             className="mt-3"
@@ -133,7 +133,7 @@ export const TodoForm = (props) => {
                     Urgency
                     </Form.Label>
                         <div className="text-muted">
-                        Think about scoring this higher if you need to complete this by today or tomorrow
+                        Think about scoring this higher if you need to complete this by today or tomorrow.
                         </div>
                         <RangeSlider
                             className="mt-3"
