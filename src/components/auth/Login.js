@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Col, Container, Form, Modal, Row } from "react-bootstrap";
 import "./Login.css";
+import { BASE_URL } from "../utils/request";
 
 
 export const Login = () => {
@@ -14,7 +15,7 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    return fetch("http://michaeltyler.pythonanywhere.com/login", {
+    return fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

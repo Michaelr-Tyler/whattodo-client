@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import { request } from "../utils/request";
+import { BASE_URL, request } from "../utils/request";
 
 
 
@@ -11,21 +11,21 @@ export const TagsProvider = props =>{
     
 
     const getTags = async ()=>{
-        const response = await request(`http://michaeltyler.pythonanywhere.com/tags`)
+        const response = await request(`${BASE_URL}/tags`)
         const tags = await response.json()
         setTags(tags)
     }
 
     const createTag = async (tag) => {
-        return await request(`http://michaeltyler.pythonanywhere.com/tags`, 'POST', tag)
+        return await request(`${BASE_URL}/tags`, 'POST', tag)
     }
 
     const updateTag = async (tagId, tag) => {
-        return await request(`http://michaeltyler.pythonanywhere.com/tags/${tagId}`,'PUT', tag)
+        return await request(`${BASE_URL}/tags/${tagId}`,'PUT', tag)
     }
 
     const deleteTag = async (tagId) => {
-        return await request(`http://michaeltyler.pythonanywhere.com/tags/${tagId}`, 'DELETE')
+        return await request(`${BASE_URL}/tags/${tagId}`, 'DELETE')
     }
 
     return (
