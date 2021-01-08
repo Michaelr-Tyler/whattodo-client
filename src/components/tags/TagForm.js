@@ -33,7 +33,7 @@ export const TagForm = () => {
           <Row className="d-flex justify-content-center">
             <Form onSubmit={handleSubmitButtonPress} className="d-flex mb-4 mt-4">
             <Col  xs={3} className="d-flex align-items-center">
-              <h5 className="">New Tag</h5>
+              <h5 style={{color:"#fff"}}>New Tag</h5>
             </Col>
             <Col xs={8} className="d-flex align-items-center">
                     <Form.Control

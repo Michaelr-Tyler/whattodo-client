@@ -1,5 +1,5 @@
 //component to handle todo's added and edited
-import React,{useRef, useState, useContext, useEffect} from "react";
+import React,{ useState, useContext, useEffect, useRef} from "react";
 import { Form, FormGroup, Row, Col, Container, Button } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import { TodoTagForm } from "../todotags/TodoTagForm";
@@ -8,14 +8,19 @@ import { TodoContext } from "./TodoDataProvider";
 
 export const TodoForm = (props) => {
     const {createTodo, updateTodo, getSingleTodo, getTodos} = useContext(TodoContext)
+    
     const [importantRating, setImportantRating] = useState(5)
     const [urgentRating, setUrgentRating] = useState(5)
-
+    const [task, setTask] = useState({content : ""})
     //set the initial todo tag id array to an empty one, 
     //when sending a Todo object to the server it will be expecting an array of either tag Ids or just an empty array.
-    //Instead of trying to set up todo tags on the front end,
-    //we can use the back end and some loggic to create the many to many relationships on the back side
     const [selectedTodoTagIds, setSelectedTodoTagIds] = useState([])
+
+    const handleTextareaChange = (e) => {
+        const stateTask = Object.assign({}, task)
+        stateTask[e.target.name] = e.target.value
+        setTask(stateTask)
+    }
 
     const isEditMode = props.match.params.hasOwnProperty("todoId")
 
@@ -27,9 +32,8 @@ export const TodoForm = (props) => {
     },[])
     const taskRef = useRef("")
 
-
     const populateFormValues = (todo) => {
-        taskRef.current.value = todo.task
+        setTask(taskRef.current.value = todo.task)
         setImportantRating(todo.important)
         setUrgentRating(todo.urgent)
 
@@ -57,12 +61,9 @@ export const TodoForm = (props) => {
 
 
     const constructNewTodo = () => {
-        if (taskRef.current.value === "") {
-            window.alert("Please fill in a task")
-        } else {
             // if validation success - create a new object from the form inputs and then either save or update it
             const newTodo = {
-                task: taskRef.current.value,
+                task: task.content,
                 urgent: parseInt(urgentRating),
                 important: parseInt(importantRating),
                 tagIds: selectedTodoTagIds
@@ -74,33 +75,46 @@ export const TodoForm = (props) => {
             } else {
                 createTodo(newTodo)
                 .then(getTodos)
-                
+                const clearedTask = Object.assign({}, task)
+                clearedTask.content = ""
+                setTask(clearedTask)
+                setImportantRating(5)
+                setUrgentRating(5)
+                setSelectedTodoTagIds([])
             }
-        }
+        
     }
 
     return (
             
         <Container className="mt-5" fluid>
             <Row className="justify-content-center">
-            <Form style={{width:'50rem'}}>
+            <Form style={{width:'30rem', background:"#DDE2E3", borderRadius:"50px", padding:"25px"}}>
                 <Col className="d-flex justify-content-center">
-                <h1  style={{color:"#2A2B26", fontSize:"50px", fontWeight:"bold", background:"#DDE2E3", borderRadius: "25px", width:"25rem"}} className="d-flex justify-content-center">
+                <h1  style={{color:"#2A2B26", fontSize:"50px", width:"25rem"}} className="d-flex justify-content-center">
                     {isEditMode ? "Edit Todo" : "Add a new todo"}
                 </h1>
                 </Col>
                 <FormGroup>
                     <Col className="justify-content-center">
-                    <Form.Control style={{background:"#DDE2E3", fontWeight:"bold"}} type="text" placeholder="Enter a task" ref={taskRef} />
+                    <Form.Control 
+                    onChange={handleTextareaChange}
+                    as='input'
+                    name='content' 
+                    placeholder="Enter a task" 
+                    value={task.content} 
+                    ref={taskRef}
+                    style={{fontWeight:"bold"}} 
+                     />
                     </Col>
                 </FormGroup>  
                 <FormGroup>
                     <Row>
                     <Col  className="text-center">
-                    <Form.Label style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"5px", fontWeight:"bold"}}>
+                    <Form.Label style={{color:"#2A2B26", fontWeight:"bold"}}>
                     Importance
                     </Form.Label>
-                        <div style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"2px", fontWeight:"bold"}}>
+                        <div className="text-muted">
                             Think about scoring this higher if you must be the one to complete this
                         </div>
                         <RangeSlider
@@ -112,11 +126,13 @@ export const TodoForm = (props) => {
                             tooltip={'off'}
                         />
                     </Col>
+                    </Row>
+                    <Row>
                     <Col className="text-center">
-                    <Form.Label  style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", padding:"5px", fontWeight:"bold"}}>
+                    <Form.Label  style={{color:"#2A2B26", fontWeight:"bold"}}>
                     Urgency
                     </Form.Label>
-                        <div style={{color:"#2A2B26", background:"#DDE2E3", borderRadius: "25px", fontWeight:"bold"}}>
+                        <div className="text-muted">
                         Think about scoring this higher if you need to complete this by today or tomorrow
                         </div>
                         <RangeSlider
@@ -137,14 +153,29 @@ export const TodoForm = (props) => {
                 onToggleTodoTag={onToggleTodoTag}
                 />
                 </Row>
+                {isEditMode ? <Row className="justify-content-center">
+                    <Button   
+                    onClick ={(e)=>{
+                        e.preventDefault();
+                        constructNewTodo();
+                    }}
+                    >Update Todo</Button>
+                </Row> : 
                 <Row className="justify-content-center">
                     <Button   
                     onClick ={(e)=>{
                         e.preventDefault();
                         constructNewTodo();
                     }}
-                    >{isEditMode ? "Update Todo" : "Submit Todo"}</Button>
+                    >Add Todo</Button>
+                    <Button 
+                    className="ml-3"
+                    onClick ={(e)=>{
+                        e.preventDefault();
+                        props.history.push('/todo');
+                    }}>Done</Button>
                 </Row>
+                }
             </Form>
             </Row>
         </Container>
