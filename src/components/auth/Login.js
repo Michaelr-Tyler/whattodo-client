@@ -61,11 +61,11 @@ export const Login = () => {
             </Form.Group>
             <Form.Group style={{width:"20rem"}}>
                 <Form.Label style={{color:"#e6e3f1"}}>Username</Form.Label>
-                <Form.Control type="username" ref={username} id="username" defaultValue="michael" placeholder="username" required autoFocus />
+                <Form.Control type="username" ref={username} id="username" defaultValue="username" placeholder="username" required autoFocus />
             </Form.Group>
             <Form.Group style={{width:"20rem"}}>
                 <Form.Label style={{color:"#e6e3f1"}}>Password</Form.Label>
-                <Form.Control type="password" ref={password} id="password" defaultValue="me" placeholder="Password" required />
+                <Form.Control type="password" ref={password} id="password" defaultValue="password" placeholder="Password" required />
             </Form.Group>
               <Button variant="info" type="submit">
                 Sign In
