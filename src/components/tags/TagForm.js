@@ -31,13 +31,13 @@ export const TagForm = () => {
 
     return (
           <Row className="d-flex justify-content-center">
-            <Form onSubmit={handleSubmitButtonPress} className="d-flex mb-4 mt-4">
+            <Form className="d-flex mb-4 mt-4">
             <Col  xs={3} className="d-flex align-items-center">
               <h5 style={{color:"#fff"}}>New Tag</h5>
             </Col>
             <Col xs={8} className="d-flex align-items-center">
                     <Form.Control
-                        type="text"
+                        type="input"
                         placeholder="Add tag"
                         name="label"
                         value={tag.label}
@@ -46,7 +46,7 @@ export const TagForm = () => {
                     />
             </Col>
             <Col xs={4} className="d-flex align-items-center">
-              <Button>Add Tag</Button>
+              <Button onClick={handleSubmitButtonPress}>Add Tag</Button>
             </Col>
             </Form>
           </Row>
