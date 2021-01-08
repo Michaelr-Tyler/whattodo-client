@@ -11,21 +11,21 @@ export const TagsProvider = props =>{
     
 
     const getTags = async ()=>{
-        const response = await request(`http://localhost:8000/tags`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/tags`)
         const tags = await response.json()
         setTags(tags)
     }
 
     const createTag = async (tag) => {
-        return await request(`http://localhost:8000/tags`, 'POST', tag)
+        return await request(`http://michaeltyler.pythonanywhere.com/tags`, 'POST', tag)
     }
 
     const updateTag = async (tagId, tag) => {
-        return await request(`http://localhost:8000/tags/${tagId}`,'PUT', tag)
+        return await request(`http://michaeltyler.pythonanywhere.com/tags/${tagId}`,'PUT', tag)
     }
 
     const deleteTag = async (tagId) => {
-        return await request(`http://localhost:8000/tags/${tagId}`, 'DELETE')
+        return await request(`http://michaeltyler.pythonanywhere.com/tags/${tagId}`, 'DELETE')
     }
 
     return (
