@@ -10,39 +10,39 @@ export const TodoProvider = props =>{
 
 
     const getTodos = async ()=>{
-        const response = await request(`http://localhost:8000/todos`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/todos`)
         const todos = await response.json()
         setTodos(todos)
     }
 
     const getSingleTodo = async (id)=>{
-        const response = await request(`http://localhost:8000/todos/${id}`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/todos/${id}`)
         const todo = await response.json()
         return todo
     }
 
     const getTodosByCategory = async (categoryId)=>{
-        const response = await request(`http://localhost:8000/todos?categories=${categoryId}`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/todos?categories=${categoryId}`)
         const todos = await response.json()
         setTodos(todos)
     }
 
     const getTodosByTag = async (tagId)=>{
-        const response = await request(`http://localhost:8000/todos?tagId=${tagId}`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/todos?tagId=${tagId}`)
         const todos = await response.json()
         setTodos(todos)
     }
 
     const createTodo = async (todo) => {
-        return await request(`http://localhost:8000/todos`,'POST', todo)
+        return await request(`http://michaeltyler.pythonanywhere.com/todos`,'POST', todo)
     }
 
     const updateTodo = async (todoId, todo) => {
-        return await request(`http://localhost:8000/todos/${todoId}`,'PUT', todo)
+        return await request(`http://michaeltyler.pythonanywhere.com/todos/${todoId}`,'PUT', todo)
     }
 
     const deleteTodo = async (todoId) => {
-        return await request(`http://localhost:8000/todos/${todoId}`, 'DELETE')
+        return await request(`http://michaeltyler.pythonanywhere.com/todos/${todoId}`, 'DELETE')
     }
 
     return (

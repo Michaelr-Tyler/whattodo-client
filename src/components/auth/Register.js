@@ -36,7 +36,7 @@ export const Register = props => {
         password
       }
 
-      return fetch("http://localhost:8000/register", {
+      return fetch("http://michaeltyler.pythonanywhere.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

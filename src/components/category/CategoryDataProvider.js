@@ -11,7 +11,7 @@ export const CategorieProvider = props =>{
     
 
     const getCategories = async ()=>{
-        const response = await request(`http://localhost:8000/categories`)
+        const response = await request(`http://michaeltyler.pythonanywhere.com/categories`)
         const categories = await response.json()
         setCategories(categories)
     }
