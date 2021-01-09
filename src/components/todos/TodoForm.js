@@ -12,7 +12,6 @@ export const TodoForm = (props) => {
     const [importantRating, setImportantRating] = useState(5)
     const [urgentRating, setUrgentRating] = useState(5)
     const [task, setTask] = useState("")
-    console.log(task)
     //set the initial todo tag id array to an empty one, 
     //when sending a Todo object to the server it will be expecting an array of either tag Ids or just an empty array.
     const [selectedTodoTagIds, setSelectedTodoTagIds] = useState([])
@@ -65,7 +64,7 @@ export const TodoForm = (props) => {
                 important: parseInt(importantRating),
                 tagIds: selectedTodoTagIds
             }
-            console.log(newTodo)
+
             if(!task){
                 window.alert("Please fill in a task")
             } else {
