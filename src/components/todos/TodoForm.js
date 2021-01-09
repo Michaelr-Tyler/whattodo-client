@@ -11,17 +11,14 @@ export const TodoForm = (props) => {
     
     const [importantRating, setImportantRating] = useState(5)
     const [urgentRating, setUrgentRating] = useState(5)
-    const [task, setTask] = useState({content : ""})
+    const [task, setTask] = useState("")
+    console.log(task)
     //set the initial todo tag id array to an empty one, 
     //when sending a Todo object to the server it will be expecting an array of either tag Ids or just an empty array.
     const [selectedTodoTagIds, setSelectedTodoTagIds] = useState([])
-
     const handleTextareaChange = (e) => {
-        const stateTask = Object.assign({}, task)
-        stateTask[e.target.name] = e.target.value
-        setTask(stateTask)
+        setTask(e.target.value)  
     }
-
     const isEditMode = props.match.params.hasOwnProperty("todoId")
 
     useEffect(()=>{
@@ -30,10 +27,10 @@ export const TodoForm = (props) => {
             .then(populateFormValues)
         } 
     },[])
-    const taskRef = useRef("")
+
 
     const populateFormValues = (todo) => {
-        setTask(taskRef.current.value = todo.task)
+        setTask(todo.task)
         setImportantRating(todo.important)
         setUrgentRating(todo.urgent)
 
@@ -57,30 +54,34 @@ export const TodoForm = (props) => {
         //Set the component stat, which will re-render the component
         setSelectedTodoTagIds(selectedTodoTagIdsList)
     }
-
+    
 
 
     const constructNewTodo = () => {
             // if validation success - create a new object from the form inputs and then either save or update it
             const newTodo = {
-                task: task.content,
+                task: task,
                 urgent: parseInt(urgentRating),
                 important: parseInt(importantRating),
                 tagIds: selectedTodoTagIds
             }
-            if(isEditMode) {
-                updateTodo(props.match.params.todoId, newTodo)
-                .then(getTodos)
-                .then(props.history.push(`/todo`))
+            console.log(newTodo)
+            if(!task){
+                window.alert("Please fill in a task")
             } else {
-                createTodo(newTodo)
-                .then(getTodos)
-                const clearedTask = Object.assign({}, task)
-                clearedTask.content = ""
-                setTask(clearedTask)
-                setImportantRating(5)
-                setUrgentRating(5)
-                setSelectedTodoTagIds([])
+                if(isEditMode) {
+                    updateTodo(props.match.params.todoId, newTodo)
+                    .then(getTodos)
+                    .then(props.history.push(`/todo`))
+                } else {
+                    createTodo(newTodo)
+                    .then(getTodos)
+                    const clearedTask = ""
+                    setTask(clearedTask)
+                    setImportantRating(5)
+                    setUrgentRating(5)
+                    setSelectedTodoTagIds([])
+                }
             }
         
     }
@@ -102,8 +103,7 @@ export const TodoForm = (props) => {
                     as='input'
                     name='content' 
                     placeholder="Enter a task" 
-                    value={task.content} 
-                    ref={taskRef}
+                    value={task} 
                     style={{fontWeight:"bold"}} 
                      />
                     </Col>
