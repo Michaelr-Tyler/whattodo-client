@@ -33,7 +33,7 @@ export const Login = () => {
           localStorage.setItem("user_id", res.user_id)
           history.push("/");
         } else {
-          invalidDialog.current.showModal();
+          window.alert("username or password was not valid.");
         }
 
       });
@@ -41,17 +41,6 @@ export const Login = () => {
 
   return (
       <main className="container--login">
-        <dialog className="dialog dialog--auth" ref={invalidDialog}>
-          <Modal.Body>
-            <div>username or password was not valid.</div>
-          </Modal.Body>
-          <Button
-            className="button--close"
-            onClick={(e) => invalidDialog.current.close()}
-          >
-            Close
-          </Button>
-        </dialog>
         <Container>
           <Form className="d-flex-column mt-5" onSubmit={handleLogin}>
             <Form.Group>

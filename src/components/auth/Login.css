@@ -5,3 +5,7 @@ body {
   background-size:cover;
 
 }
+
+.clickable{
+  cursor: pointer;
+}
