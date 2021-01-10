@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Card, Modal, Button, Carousel } from "react-bootstrap";
+import { Card, Modal, Button, Carousel, Badge } from "react-bootstrap";
 import MatrixImage from "../../images/MaximusMatrix.JPG"
 
 export const DashboardModal = () => {
@@ -11,7 +11,7 @@ export const DashboardModal = () => {
   return (
           <>
           <Button variant="primary" onClick={handleShow}>
-            Help!
+            How does this work?
           </Button>
 
           <Modal show={show} onHide={handleClose}>
@@ -23,45 +23,45 @@ export const DashboardModal = () => {
                       <Card.Title>Eisenhower Matrix:</Card.Title>
                       <Card.Text>
                         <p>
-                          The Eisenhower Matrix is a method, developed by Dwight D. Eisenhower, that can help you prioritize and decide on tasks by urgency and importance, 
-                          along with sifting out less urgent and important tasks, which can be delegated or not done at all.
+                          The Eisenhower Matrix is a method, developed by Dwight D. Eisenhower, that can help you prioritize and decide on tasks by urgency and importance. 
+                          Less urgent and important tasks can be sifted out, and can be delegated or not done at all.
                         </p>
                       </Card.Text>
                     </Card.Body>
                 </Carousel.Item>
                 <Carousel.Item interval={1000000}>
                     <Card.Body className="bg-secondary p-5">
-                      <Card.Title>The Chart</Card.Title>
+                      <Card.Title>The Chart and Tags</Card.Title>
                       <Card.Text>
                         <p>
-                          Once you add some todos and rate them, you can come back here and see where they fall on the chart. 
-                          Make sure you add some tags to your tag manager. 
-                          These will help you organize your todo list even more. 
-                          Once you've added tags you can click on them in the lists and filter all your todos by that specific tag.
+                          Once you have added some todos and rated them, you can come back here and see where they fall on the chart. 
+                          Add some tags to your tag manager to organize your list even more.
+                        
+                          You can click on the <Badge pill variant="primary">tags</Badge> in your lists to filter all of your todos by that specific tag.
                         </p>
                       </Card.Text>
                     </Card.Body>
                 </Carousel.Item>
                 <Carousel.Item interval={1000000}>
                     <Card.Body className="bg-secondary p-5">
-                      <Card.Title>Rating urgency</Card.Title>
+                      <Card.Title>Rating Urgency</Card.Title>
                       <Card.Text>
                         <p>
                           For something to be urgent it must have a completion time in the near future. 
-                          Examples that would rate higher are getting food for dinner, feeding your pets, 
-                          or finishing that weekly report when it is Thursday afternoon. 
+                          Examples of tasks that would rate higher are things such as getting food for dinner, feeding your pets, 
+                          or finishing that weekly report when it's Thursday afternoon. 
                         </p>
                       </Card.Text>
                     </Card.Body>
                 </Carousel.Item>
                 <Carousel.Item interval={1000000}>
                     <Card.Body className="bg-secondary p-5">
-                      <Card.Title>Rating importance</Card.Title>
+                      <Card.Title>Rating Importance</Card.Title>
                       <Card.Text>
                         <p>
-                          For a task to be important, it must be something only you can do. In our previous example we talked about getting dinner and feeding our fluffy friends. 
-                          We can rate the importance lower for these when we can reach out to a loved one, assistant, or a friend for help. 
-                          However, that report your required to complete each week to review with your boss every Friday? Rate that very important!
+                          For a task to be important, it must be something only you can do. Previously, we mentioned getting food for dinner and feeding our fluffy friends. 
+                          We can rate the importance lower for these because we can reach out to a loved one, friend, or assistant for help. 
+                          However, that weekly report that you're required to complete and review with your boss every Friday? Rate that as very important!
                         </p>
                       </Card.Text>
                     </Card.Body>
@@ -71,7 +71,7 @@ export const DashboardModal = () => {
                       <Card.Title>WHEW! That was a lot...</Card.Title>
                       <Card.Text>
                         <p>
-                          Now it's time to organize. First go add your tags and then fill out your todos. I bet you've got a ton of stuff you need to do!
+                          Now it's time to organize. First, go add your tags and then fill out your todos. I bet you've got a ton of stuff you need to do!
                         </p>
                       </Card.Text>
                     </Card.Body>
