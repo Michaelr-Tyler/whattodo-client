@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import ChartWrapper from "../chart/ChartWrapper";
 import TodoAccordian from "../todos/TodoAccordian";
 import { TodoContext } from "../todos/TodoDataProvider"
 import { UserWelcome } from "../user/UserWelcome";
 import { CategoryContext } from "../category/CategoryDataProvider";
-import { DashboardContent } from "./DashboardContent";
+import { DashboardModal } from "./DashboardModal";
 import ClosingTag from "../tags/ClosingTag";
 
 
@@ -42,9 +42,14 @@ export const Dashboard = () => {
     }
     
   return (
-    <>
+    <Container style={{maxWidth:"50rem"}} sm={1}>
       <Row>
-        <Col className="mr-2 ml-2 mt-3">
+        <Col className="mr-5 ml-2 mt-3 d-flex justify-content-end">
+          <DashboardModal />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="m-3">
           <UserWelcome />
         </Col>
       </Row>
@@ -54,20 +59,20 @@ export const Dashboard = () => {
             <ClosingTag setTagId={setTagId}/>
           </Col>
         </Row>
-        
         }
-      <Row className="mt-4">
-      <Col className="ml-2 mb-2">
-        <DashboardContent />
-      </Col>
-        <Col className="mr-2 ml-2">
+        <Row>
+        <Col className="">
         <Card style={{minWidth:"375px"}}>
           {renderChart()}
         </Card>
+        </Col>
+        </Row>
+      <Row className="">
+        <Col>
           <TodoAccordian categories={categories} todos={todos} setTagId={setTagId}/>
         </Col>
       </Row>
-      <Row className="mt-2">
+      <Row className="">
         <Col>
           <Card bg="dark">
             <Card.Footer>
@@ -76,7 +81,7 @@ export const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-    </>
+      </Container>
 
   )
 }
