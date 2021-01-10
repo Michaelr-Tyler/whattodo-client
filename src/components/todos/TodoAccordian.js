@@ -7,7 +7,7 @@ import { Todo } from "./Todo";
 const TodoAccordian = (props) => {
 
     return (
-        <Accordion className="bg-dark mb-2 mt-4">
+        <Accordion defaultActiveKey={1} className="bg-dark mb-2 mt-4">
             <Card>
                 {props.categories.map((c)=>{
                     return(<Fragment key={c.id}>

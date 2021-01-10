@@ -7,6 +7,7 @@ import { GrEdit } from "react-icons/gr";
 import { GoChecklist } from "react-icons/go";
 import { TodoTagList } from "../todotags/TodoTagsList";
 import ClosingTag from "../tags/ClosingTag";
+import ChartWrapper from "../chart/ChartWrapper";
 
 
 
