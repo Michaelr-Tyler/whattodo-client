@@ -10,7 +10,7 @@ export default (props) => {
         props.setTagId("")
         }} 
         pill 
-        variant="secondary" 
+        variant="primary" 
         className="m-1"> 
         Remove filter
       </Badge> 

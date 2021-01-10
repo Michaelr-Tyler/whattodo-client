@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { Col, Container, Form, Modal, Row } from "react-bootstrap";
+import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import "./Login.css";
 import { BASE_URL } from "../utils/request";
+import { LandingPageContent } from "./LandingPage";
 
 
 export const Login = () => {
   const username = useRef();
   const password = useRef();
-  const invalidDialog = useRef();
   const history = useHistory();
 
   const handleLogin = (e) => {
@@ -40,37 +40,36 @@ export const Login = () => {
   };
 
   return (
-      <main className="container--login">
-        <Container>
-          <Form className="d-flex-column mt-5" onSubmit={handleLogin}>
-            <Form.Group>
-              <Form.Label style={{color:"#e6e3f1"}}><h1>What To Do?</h1></Form.Label>
-              <br />
-              <Form.Label style={{color:"#e6e3f1"}}><h4>Please sign in</h4></Form.Label>
-            </Form.Group>
-            <Form.Group style={{width:"20rem"}}>
-                <Form.Label style={{color:"#e6e3f1"}}>Username</Form.Label>
-                <Form.Control type="username" ref={username} id="username" defaultValue="username" placeholder="username" required autoFocus />
-            </Form.Group>
-            <Form.Group style={{width:"20rem"}}>
-                <Form.Label style={{color:"#e6e3f1"}}>Password</Form.Label>
-                <Form.Control type="password" ref={password} id="password" defaultValue="password" placeholder="Password" required />
-            </Form.Group>
-              <Button variant="info" type="submit">
-                Sign In
-              </Button>
-          </Form>
-          <Row style={{width:"20rem"}}>
-            <Col className="d-flex justify-content-center">
-              <Link to="/register">Not a member yet?</Link>
+        <Container sm={1} md={2}>
+          <Row className="mt-5">
+            <Col className="mt-5">
+              <LandingPageContent />
             </Col>
-          </Row>
-          <Row style={{color:"#c0c8ce"}} className="d-flex fixed-bottom text-center mb-2">
-            <Col>
-              <footer>image belongs to Jessica Lewis</footer>
+            <Col className="mt-5">
+              <Form className="mt-5" style={{width:'25rem', background:"#DDE2E3", borderRadius:"50px", padding:"15px"}} onSubmit={handleLogin}>
+                <Form.Group>
+                  <Form.Label style={{color:"#3C493F"}}><h1>What To Do?</h1></Form.Label>
+                </Form.Group>
+                <Form.Group style={{width:"20rem"}}>
+                    <Form.Label style={{color:"#3C493F"}}>Username</Form.Label>
+                    <Form.Control type="username" ref={username} id="username" placeholder="Username" required autoFocus />
+                </Form.Group>
+                <Form.Group style={{width:"20rem"}}>
+                    <Form.Label style={{color:"#3C493F"}}>Password</Form.Label>
+                    <Form.Control type="password" ref={password} id="password" placeholder="Password" required />
+                </Form.Group>
+              <Row style={{width:"20rem"}}>
+                <Col className="d-flex justify-content-around">
+                  <Button variant="info" type="submit">
+                    Sign In
+                  </Button>
+                  <div className="d-flex align-items-center"> -or-</div>
+                  <Link className="d-flex align-items-center" to="/register">Sign up for free!</Link>
+                </Col>
+              </Row>
+              </Form>
             </Col>
           </Row>
         </Container>
-      </main>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
+import { ListGroup, Row, Col, Container, Button, Card, Badge } from "react-bootstrap";
 import Tag from "./Tag";
 import { TagContext } from "./TagsDataProvider";
 
@@ -29,7 +29,10 @@ export const TagList = () => {
             <Container fluid>
               <Row>
                 <Col className="d-flex justify-content-center">
-                  <h1>Add some tags to help organize your tasks even more!</h1>
+                  <Card style={{borderRadius:"50px 10px 50px 15px", padding:"5px"}}>
+                    <h1>Add some <Badge pill variant="primary">tags</Badge> to help organize your tasks even more!</h1>
+                    <h5 className="d-flex justify-content-center">You can click these on the homepage and todo list to filter by specific tags</h5>
+                  </Card>
                 </Col>
               </Row>
             </Container>
