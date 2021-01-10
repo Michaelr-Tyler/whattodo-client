@@ -6,6 +6,8 @@ import TodoList from '../../images/TodoList.png'
 import FilterCategory from '../../images/FilterCategory.jpeg'
 import FilterTag from '../../images/FilterTag.jpeg'
 import TodoAccordian from '../../images/TodoAccordian.jpeg'
+
+//this is the landing page card
 export const LandingPageContent = () => {
   return (
     <Card className="mb-5" style={{ background:"#DDE2E3", borderRadius:"50px", padding:"20px"}}>
