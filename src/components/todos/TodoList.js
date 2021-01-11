@@ -7,9 +7,6 @@ import { GrEdit } from "react-icons/gr";
 import { GoChecklist } from "react-icons/go";
 import { TodoTagList } from "../todotags/TodoTagsList";
 import ClosingTag from "../tags/ClosingTag";
-import ChartWrapper from "../chart/ChartWrapper";
-
-
 
 export const TodoList = (props) => {
     const {todos, getTodos, getTodosByCategory, deleteTodo, getTodosByTag} = useContext(TodoContext)

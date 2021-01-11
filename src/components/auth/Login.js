@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import "./Login.css";
 import { BASE_URL } from "../utils/request";
 import { LandingPageContent } from "./LandingPage";

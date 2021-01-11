@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { Col, Form, Button, Row, Container, Card } from "react-bootstrap"
+import { Col, Form, Button, Row, Container } from "react-bootstrap"
 import { BASE_URL } from "../utils/request"
 
 export const Register = props => {
