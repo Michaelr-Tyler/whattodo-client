@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import { TagContext } from "../tags/TagsDataProvider";
 
 
@@ -30,26 +30,22 @@ export const TagForm = () => {
       }
 
     return (
-          <Row className="d-flex justify-content-center">
-            <Form className="d-flex mb-4 mt-4">
-            <Col  xs={3} className="d-flex align-items-center">
-              <h5 style={{color:"#fff"}}>New Tag</h5>
-            </Col>
-            <Col xs={8} className="d-flex align-items-center">
-                    <Form.Control
-                        type="input"
-                        placeholder="Add tag"
-                        name="label"
-                        value={tag.label}
-                        autoComplete={"off"}
-                        onChange={handleControlledInputChange}
-                    />
-            </Col>
-            <Col xs={4} className="d-flex align-items-center">
-              <Button onClick={handleSubmitButtonPress}>Add Tag</Button>
-            </Col>
-            </Form>
-          </Row>
-
+            <Container fluid className="d-flex justify-content-center m-4">
+              <Row>
+                <Col>
+                  <Form.Control
+                      type="input"
+                      placeholder="New Tag"
+                      name="label"
+                      value={tag.label}
+                      autoComplete={"off"}
+                      onChange={handleControlledInputChange}
+                  />
+                </Col>
+                <Col>
+                  <Button onClick={handleSubmitButtonPress}>Add Tag</Button>
+                </Col>
+              </Row>
+            </Container>
         )
 }

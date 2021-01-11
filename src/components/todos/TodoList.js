@@ -3,8 +3,8 @@ import { Todo } from "./Todo";
 import { ListGroup, Row, Col, Container, Button } from "react-bootstrap";
 import { TodoContext } from "./TodoDataProvider";
 import { CategorySelect } from "./CategorySelect";
-import { GrEdit } from "react-icons/gr";
-import { GoChecklist } from "react-icons/go";
+import { FiEdit2 } from "react-icons/fi";
+import { FaCheck } from "react-icons/fa";
 import { TodoTagList } from "../todotags/TodoTagsList";
 import ClosingTag from "../tags/ClosingTag";
 
@@ -27,29 +27,35 @@ export const TodoList = (props) => {
 
     
     return (
-        <Container className="">
+        <Container className="mt-4" style={{maxWidth:"1000px"}}>
             <CategorySelect onChange={id => setCategoryId(id)} />
             {!tagId ? "" : <ClosingTag setTagId={setTagId}/>}
             <ListGroup>{todos.map((td)=>{
                 return (
-                <ListGroup.Item style={{"borderRadius":"50px 10px 50px 15px"}} className="m-1">
-                    <Row className="m-2">
-                        <Todo key={td.id} task={td.task} />
-                        <TodoTagList setTagId={setTagId} todoTags={td.tags}/>
+                    <ListGroup.Item style={{"borderRadius":"50px 30px"}} className="m-2">
+                    <Row xs={1} sm={1} md={4} className=" p-1 d-flex justify-content-center">
+                        <Col  className="d-flex justify-content-center">
+                            <Todo key={td.id} task={td.task} />
+                        </Col>
+                        <Col className="d-flex flex-wrap">
+                            <TodoTagList setTagId={setTagId} todoTags={td.tags}/>
+                        </Col>
                         <Col className="d-flex justify-content-center">
                             <div className="text-muted d-flex align-items-center">{td.category.label}</div>
                         </Col>
-                        <Col className="d-flex justify-content-end">
-                        <Button
-                        className="mr-2"
-                        onClick={(e)=> {
+                        <Col style={{maxHeight:"50px"}} className="d-flex justify-content-center">
+                            <Button
+                            className="m-1"
+                            onClick={(e)=> {
                             e.preventDefault()
                             props.history.push(`/todo/form/${td.id}`)
                             }}>
-                                <GrEdit style={{color:"white"}}/>
-                        </Button> 
-                        <Button 
-                        onClick={(e)=> {
+                                <FiEdit2 style={{color:"white"}}/>
+                            </Button> 
+                            <Button 
+                            className="m-1"
+                            variant="success"
+                            onClick={(e)=> {
                             e.preventDefault()
                             deleteTodo(td.id)
                             .then(()=> {
@@ -61,12 +67,12 @@ export const TodoList = (props) => {
                                 getTodos()
                             }
                             })}}>
-                                <GoChecklist style={{color:"black"}}/>
+                                <FaCheck style={{color:"white"}}/>
                             </Button>
                         </Col>
                     </Row>
-                </ListGroup.Item>
-                    )
+                    </ListGroup.Item>
+                        )
             }
         )}  
             </ListGroup>

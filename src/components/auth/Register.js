@@ -61,7 +61,7 @@ export const Register = props => {
 
   return (
     <div className="background--wrapper__login">
-      <Container className="my-5">
+      <Container>
         <Form.Label><h1 style={{color:"#e6e3f1"}}>What to do?</h1></Form.Label>
         <Form onSubmit={handleFormSubmit}>
           <Row  style={{border:"5px solid white", "borderRadius": "10px 40px 20px 50px", width:"20rem"}} className="p-2">

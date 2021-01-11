@@ -1,6 +1,6 @@
 
 
-@media screen and (min-width: 0px) and (max-width: 400px) {
+@media screen and (min-width: 0px) and (max-width: 500px) {
 .background--wrapper__login {
   background: linear-gradient(#1789FC, #E2FDFF) no-repeat center;
   -webkit-background-size: cover;
@@ -8,7 +8,7 @@
   background-size:cover;
 }
 }
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 500px) {
 .background--wrapper__login {
       height:100vh;
       width:100vw;

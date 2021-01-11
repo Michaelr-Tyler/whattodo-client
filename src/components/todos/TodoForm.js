@@ -87,11 +87,11 @@ export const TodoForm = (props) => {
 
     return (
             
-        <Container className="mt-5" fluid>
-            <Row className="justify-content-center">
-            <Form style={{width:'30rem', background:"#DDE2E3", borderRadius:"50px", padding:"25px"}}>
+        <Container className="mt-5 mb-5" fluid>
+            <Row className="justify-content-center m-2">
+            <Form style={{maxWidth:"500px",background:"#DDE2E3", borderRadius:"50px", padding:"25px"}}>
                 <Col className="d-flex justify-content-center">
-                <h1  style={{color:"#2A2B26", fontSize:"50px", width:"25rem"}} className="d-flex justify-content-center">
+                <h1  style={{color:"#2A2B26", fontSize:"50px"}} className="d-flex justify-content-center">
                     {isEditMode ? "Edit Todo" : "Add a new todo"}
                 </h1>
                 </Col>

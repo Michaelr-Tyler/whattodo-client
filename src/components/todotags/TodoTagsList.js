@@ -18,7 +18,7 @@ export const TodoTagList = (props) => {
   });
 
   return (
-    <Col className="d-flex">
+    <Col className="d-flex flex-wrap">
         {props.todoTags.map((todoTag) => {
           return (
             <div className="d-flex align-items-center">
@@ -28,7 +28,7 @@ export const TodoTagList = (props) => {
                 props.setTagId(todoTag.id)
               }} 
               variant="primary" 
-              className="ml-1" 
+              className="m-1" 
               key={todoTag.id}
               > {todoTag.label} 
             </Badge>
