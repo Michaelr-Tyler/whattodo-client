@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/card'
-import Carousel from 'react-bootstrap/carousel'
+import {Card, Carousel} from 'react-bootstrap'
 import ToolTip from '../../images/ToolTip.jpeg'
 import TodoList from '../../images/TodoList.png'
 import FilterCategory from '../../images/FilterCategory.jpeg'
