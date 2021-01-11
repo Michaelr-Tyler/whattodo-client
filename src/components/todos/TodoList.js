@@ -27,13 +27,13 @@ export const TodoList = (props) => {
 
     
     return (
-        <Container className="mt-4">
+        <Container className="">
             <CategorySelect onChange={id => setCategoryId(id)} />
             {!tagId ? "" : <ClosingTag setTagId={setTagId}/>}
             <ListGroup>{todos.map((td)=>{
                 return (
                 <ListGroup.Item style={{"borderRadius":"50px 10px 50px 15px"}} className="m-1">
-                    <Row>
+                    <Row className="m-2">
                         <Todo key={td.id} task={td.task} />
                         <TodoTagList setTagId={setTagId} todoTags={td.tags}/>
                         <Col className="d-flex justify-content-center">

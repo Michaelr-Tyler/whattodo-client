@@ -29,7 +29,7 @@ export const TagList = () => {
             <Container fluid>
               <Row>
                 <Col className="d-flex justify-content-center">
-                  <Card style={{borderRadius:"50px 10px 50px 15px", padding:"5px"}}>
+                  <Card style={{borderRadius:"50px 10px 50px 15px", padding:"10px"}}>
                     <h1>Add some <Badge pill variant="primary">tags</Badge> to help organize your tasks even more!</h1>
                     <h5 className="d-flex justify-content-center">You can click these on the homepage and todo list to filter by specific tags</h5>
                   </Card>
@@ -39,13 +39,15 @@ export const TagList = () => {
             )
         } else {
           return (
-            <Container className="d-flex justify-content-center">
+            <Container sm ={1} className="d-flex justify-content-center">
               <ListGroup style={{width: "50rem"}}>
                 {tags.map((t) => {
                     return (
-                            <ListGroup.Item style={{borderRadius:"50px 10px 50px 15px"}} className="m-1" key={t.id}>
-                                <Row className="d-flex">
+                            <ListGroup.Item style={{borderRadius:"50px 10px 50px 15px"}} className="m-2" key={t.id}>
+                                <Row className="d-flex m-2">
+                                  <Col className="d-flex align-items-center">
                                     <Tag tag={t} />
+                                  </Col>
                                   <Col className="d-flex justify-content-end">
                                     <Button 
                                     className="mr-3"
