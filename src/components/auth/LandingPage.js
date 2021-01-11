@@ -1,30 +1,34 @@
 import React from 'react';
 import {Card, Carousel} from 'react-bootstrap'
 import ToolTip from '../../images/ToolTip.jpeg'
-import TodoList from '../../images/TodoList.png'
+import TodoList from '../../images/TodoList.jpeg'
 import FilterCategory from '../../images/FilterCategory.jpeg'
 import FilterTag from '../../images/FilterTag.jpeg'
 import TodoAccordian from '../../images/TodoAccordian.jpeg'
+import TagList from '../../images/TagList.jpeg'
 
 //this is the landing page card
 export const LandingPageContent = () => {
   return (
     <Card className="mb-5" style={{ background:"#DDE2E3", borderRadius:"50px", padding:"20px"}}>
       <Carousel>
-        <Carousel.Item>
+        <Carousel.Item interval={2000}>
           <Card.Img variant="top" src={ToolTip} />
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={1500}>
+          <Card.Img variant="top" src={TodoAccordian} />
+        </Carousel.Item>
+        <Carousel.Item interval={1500}>
           <Card.Img variant="top" src={TodoList} />
         </Carousel.Item>
-        <Carousel.Item>
-          <Card.Img variant="top" src={FilterCategory} />
-        </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={1500}>
           <Card.Img variant="top" src={FilterTag} />
         </Carousel.Item>
-        <Carousel.Item>
-          <Card.Img variant="top" src={TodoAccordian} />
+        <Carousel.Item interval={1500}>
+          <Card.Img variant="top" src={FilterCategory} />
+        </Carousel.Item> 
+        <Carousel.Item interval={1500}>
+          <Card.Img variant="top" src={TagList} />
         </Carousel.Item>
       </Carousel>
       <Card.Title style={{color:"#3C493F"}} className="m-2"><h2>Why sign up?</h2></Card.Title>
