@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import "./Login.css";
+import { Col, Container, Form, Row, Card } from "react-bootstrap";
 import { BASE_URL } from "../utils/request";
 import { LandingPageContent } from "./LandingPage";
+import "./Login.css"
 
 
 export const Login = () => {
@@ -40,36 +40,39 @@ export const Login = () => {
   };
 
   return (
+    <div className="background--wrapper__login">
         <Container sm={1} md={2}>
-          <Row className="mt-5">
+          <Row>
             <Col className="mt-5">
               <LandingPageContent />
             </Col>
-            <Col className="mt-5">
-              <Form className="mt-5" style={{width:'25rem', background:"#DDE2E3", borderRadius:"50px", padding:"15px"}} onSubmit={handleLogin}>
+            <Col className="mb-5 mt-5">
+              <Card style={{background:"#DDE2E3", borderRadius:"50px", padding:"10px"}}>
+              <Form className="m-3" onSubmit={handleLogin}>
                 <Form.Group>
                   <Form.Label style={{color:"#3C493F"}}><h1>What To Do?</h1></Form.Label>
                 </Form.Group>
-                <Form.Group style={{width:"20rem"}}>
+                <Form.Group>
                     <Form.Label style={{color:"#3C493F"}}>Username</Form.Label>
                     <Form.Control type="username" ref={username} id="username" placeholder="Username" required autoFocus />
                 </Form.Group>
-                <Form.Group style={{width:"20rem"}}>
+                <Form.Group >
                     <Form.Label style={{color:"#3C493F"}}>Password</Form.Label>
                     <Form.Control type="password" ref={password} id="password" placeholder="Password" required />
                 </Form.Group>
-              <Row style={{width:"20rem"}}>
+              <Row>
                 <Col className="d-flex justify-content-around">
-                  <Button variant="info" type="submit">
+                  <Button style={{width:"100px"}} variant="info" type="submit">
                     Sign In
                   </Button>
-                  <div className="d-flex align-items-center"> -or-</div>
                   <Link className="d-flex align-items-center" to="/register">Sign up for free!</Link>
                 </Col>
               </Row>
               </Form>
+              </Card>
             </Col>
           </Row>
         </Container>
+    </div>
   );
 };

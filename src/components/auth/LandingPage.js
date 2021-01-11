@@ -27,15 +27,15 @@ export const LandingPageContent = () => {
           <Card.Img variant="top" src={TodoAccordian} />
         </Carousel.Item>
       </Carousel>
-      <Card.Title style={{color:"#3C493F"}}><h1>Why sign up?</h1></Card.Title>
+      <Card.Title style={{color:"#3C493F"}} className="m-2"><h2>Why sign up?</h2></Card.Title>
       <Card.Body>
-      <Card.Title style={{color:"#3C493F"}}><h2>With "What To Do" you can:</h2></Card.Title>
+      <Card.Title style={{color:"#3C493F"}} className="mb-2"><h3>With "What To Do" you can:</h3></Card.Title>
         <ul>
-          <li><h3 style={{color:"#3C493F"}}>Effectively maintain your todo list</h3></li>
-          <li><h3 style={{color:"#3C493F"}}>Organize your tasks with custom tags</h3></li>
-          <li><h3 style={{color:"#3C493F"}}>Filter by category or tags to view specific projects</h3></li>
-          <li><h3 style={{color:"#3C493F"}}>Visualize your tasks</h3></li>
-          <li><h3 style={{color:"#3C493F"}}>Knock down that list in no time!</h3></li>
+          <li><h5 style={{color:"#3C493F"}}>Effectively maintain your todo list</h5></li>
+          <li><h5 style={{color:"#3C493F"}}>Organize your tasks with custom tags</h5></li>
+          <li><h5 style={{color:"#3C493F"}}>Filter by category or tags to view specific projects</h5></li>
+          <li><h5 style={{color:"#3C493F"}}>Visualize your tasks</h5></li>
+          <li><h5 style={{color:"#3C493F"}}>Knock down that list in no time!</h5></li>
         </ul>
       </Card.Body>
     </Card>

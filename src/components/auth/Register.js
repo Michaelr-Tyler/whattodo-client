@@ -60,7 +60,7 @@ export const Register = props => {
   }
 
   return (
-
+    <div className="background--wrapper__login">
       <Container className="my-5">
         <Form.Label><h1 style={{color:"#e6e3f1"}}>What to do?</h1></Form.Label>
         <Form onSubmit={handleFormSubmit}>
@@ -117,11 +117,11 @@ export const Register = props => {
 
           </Row>
           <Button className="m-2" variant="info" type="submit">Register</Button>
-      <Row>
-        <Link style={{color:"#fff"}} to="/login">Already Have an account? Click here to log in!</Link>
-      </Row>
+          <Row>
+            <Link style={{color:"#fff"}} to="/login">Already Have an account? Click here to log in!</Link>
+          </Row>
         </Form>
-
       </Container>
+      </div>
   )
 }

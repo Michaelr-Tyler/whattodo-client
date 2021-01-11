@@ -8,8 +8,6 @@ import { CategoryContext } from "../category/CategoryDataProvider";
 import { DashboardModal } from "./DashboardModal";
 import ClosingTag from "../tags/ClosingTag";
 
-
-
 export const Dashboard = () => {
   const {todos, getTodos, getTodosByTag} = useContext(TodoContext)
   const {categories, getCategories} = useContext(CategoryContext)
@@ -82,6 +80,5 @@ export const Dashboard = () => {
         </Col>
       </Row>
       </Container>
-
   )
 }
