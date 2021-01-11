@@ -172,7 +172,7 @@ export const TodoForm = (props) => {
                     onClick ={(e)=>{
                         e.preventDefault();
                         props.history.push('/todo');
-                    }}>Done</Button>
+                    }}>Go to my list</Button>
                 </Row>
                 }
             </Form>
