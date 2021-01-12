@@ -13,7 +13,7 @@
 
 ## Where can you sign up? 
 
-[ Right Here!](https://importantvsurgentmatrix.herokuapp.com)
+[ Right Here!](https://importantvsurgentmatrix.herokuapp.com/)
 
 # Screenshots
 
